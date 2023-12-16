@@ -10,7 +10,8 @@
 * User behavior
 * Financial Modeling and Forecasting
 * Real-Time Alerting
-  > **Effective** data analysis solutions require both storage and the ability to analyze data **in near real time**, with **low latency** while yielding **high-value returns.**
+
+> **Effective** data analysis solutions require both storage and the ability to analyze data **in near real time**, with **low latency** while yielding **high-value returns.**
 
 ### Characteristics of big data
 
