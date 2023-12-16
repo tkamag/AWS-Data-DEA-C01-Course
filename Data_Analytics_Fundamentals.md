@@ -12,6 +12,7 @@
   > **Effective** data analysis solutions require both storage and the ability to analyze data **in near real time**, with **low latency** while yielding **high-value returns.**
 
 ### Characteristics of big data
+
 The **volume** and **velocity** of data are only two factors you should consider in  a data analytics solution
 * Volume
 * Velocity
@@ -20,6 +21,7 @@ The **volume** and **velocity** of data are only two factors you should consider
 * Value
 
 ### Components of a data analysis solution
+
 * **Ingest/Collect** : Assemble data from many sources
 * **Store** : Hold data in repositories
 * **Process Analyze** : Manipulate data into needed forms
