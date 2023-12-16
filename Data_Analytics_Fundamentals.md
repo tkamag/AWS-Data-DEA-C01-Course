@@ -30,9 +30,9 @@ The **volume** and **velocity** of data are only two factors you should consider
 ### Exponential growth of business data
 There are three broad classifications of data source types:
 
-    * **Structured data** is organized and stored in the form of values that are grouped into rows and columns of a table.
-    * **Semi-structured data** is often stored in a series of key-value pairs that are grouped into elements within a file.
-    * **Unstructured data** is not structured in a consistent way. Some data may have structure similar to semi-structured data but others may only contain metadata.
+* **Structured data** is organized and stored in the form of values that are grouped into rows and columns of a table.
+* **Semi-structured data** is often stored in a series of key-value pairs that are grouped into elements within a file.
+* **Unstructured data** is not structured in a consistent way. Some data may have structure similar to semi-structured data but others may only contain metadata.
 
 ### Introduction to Amazon S3
 ``Amazon S3`` is object storage built to store and retrieve any amount of data from anywhere.
