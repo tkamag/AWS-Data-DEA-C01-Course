@@ -13,17 +13,17 @@
 
 ### Characteristics of big data
 The **volume** and **velocity** of data are only two factors you should consider in  a data analytics solution
-    * Volume
-    * Velocity
-    * Variety
-    * Veracity
-    * Value
+* Volume
+* Velocity
+* Variety
+* Veracity
+* Value
 
 ### Components of a data analysis solution
-    * **Ingest/Collect** : Assemble data from many sources
-    * **Store** : Hold data in repositories
-    * **Process Analyze** : Manipulate data into needed forms
-    * **Consume Visualize** : Extract key information from the data
+* **Ingest/Collect** : Assemble data from many sources
+* **Store** : Hold data in repositories
+* **Process Analyze** : Manipulate data into needed forms
+* **Consume Visualize** : Extract key information from the data
 
 ## Lesson 2: Volume - Data Storage
 > When businesses have **more data** than they are able to **process and analyze**, they have a **volume problem**..
