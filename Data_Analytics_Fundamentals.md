@@ -3,12 +3,13 @@
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## Lesson 1: Introduction to data analysis solutions
 ### Benefits of data analytics on a big scale
-    * Customer Personalization
-    * Fraud Detection
-    * Security Threat Detection
-    * User behavior
-    * Financial Modeling and Forecasting
-    * Real-Time Alerting
+
+* Customer Personalization
+* Fraud Detection
+* Security Threat Detection
+* User behavior
+* Financial Modeling and Forecasting
+* Real-Time Alerting
   > **Effective** data analysis solutions require both storage and the ability to analyze data **in near real time**, with **low latency** while yielding **high-value returns.**
 
 ### Characteristics of big data
