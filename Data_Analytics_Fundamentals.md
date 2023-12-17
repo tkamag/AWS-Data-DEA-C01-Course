@@ -18,6 +18,7 @@ https://ecotrust-canada.github.io/markdown-toc/
       - [B.4.1 Data marts](#b41-data-marts)
       - [B.4.2 Amazon Redshift benefits](#b42-amazon-redshift-benefits)
       - [B.4.3 Comparing data warehouses and data lakes](#b43-comparing-data-warehouses-and-data-lakes)
+    - [B.5 Amazon EMRFS](#b5-amazon-emrfs)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -135,3 +136,19 @@ high-performance, cost-effective way without having to move large amounts of dat
 **AWS: Data Lakes and Analytics**
 
 AWS provides a comprehensive portfolio of services that enable customers to build their data lakes in the cloud and analyze all their data with the broadest set of analytical approaches, including machine learning.
+
+> So now what we’ve got is ``Amazon S3`` that can host a data lake and ``Amazon Redshift`` that can host a data warehouse, but what if I need to query across both spaces?
+>
+> ``Amazon Redshift Spectrum`` **allows you to combine your data lake and data warehouse as if it were a single source of data**. No data movement, no crazy query logic, just clean queries of all your data. 
+>
+### B.5 Amazon EMRFS
+
+``Amazon EMR`` provides an alternative to ``HDFS``: the ``EMR File System (EMRFS)``. EMRFS can help ensure that there is a persistent "source of truth" for HDFS data stored in Amazon S3. When implementing EMRFS, there is no need to copy data into the cluster before transforming and analyzing the data as with HDFS. EMRFS can catalog data within a data lake on Amazon S3. The time that is saved by eliminating the copy step can dramatically improve performance of the cluster.
+
+* ``Data warehouses`` provide storage for highly structured data sets that serve as the single source of truth for analytical queries.
+
+* ``Data lakes`` allow content of any form to be stored. This content may not be curated and serves all forms of querying.
+
+* ``OLTP databases`` serve as a structured store for new and frequently updated data. They may not perform well when analytical queries are run frequently.
+
+* ``Hadoop clusters`` provide extremely fast and reliable ingestion and processing of data.
