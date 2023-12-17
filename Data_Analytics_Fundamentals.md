@@ -14,7 +14,10 @@ https://ecotrust-canada.github.io/markdown-toc/
       - [B.3.1 Benefits of a data lake on AWS](#b31-benefits-of-a-data-lake-on-aws)
       - [B.3.2 Amazon EMR and data lakes](#b32-amazon-emr-and-data-lakes)
       - [B.4 AWS Lake Formation](#b4-aws-lake-formation)
-    - [B.3 Introduction to data storage methods](#b3-introduction-to-data-storage-methods)
+    - [B.4 Introduction to data storage methods](#b4-introduction-to-data-storage-methods)
+      - [B.4.1 Data marts](#b41-data-marts)
+      - [B.4.2 Amazon Redshift benefits](#b42-amazon-redshift-benefits)
+      - [B.4.3 Comparing data warehouses and data lakes](#b43-comparing-data-warehouses-and-data-lakes)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -91,4 +94,44 @@ Once objects have been stored in an ``Amazon S3`` bucket, they are given an **ob
 
 ``Lake Formation`` automatically configures underlying AWS services to ensure compliance with your defined policies. If you have set up transformation jobs spanning AWS services, ``Lake Formation`` **configures the flows, centralizes their orchestration, and lets you monitor the processing of your jobs**.
 
-### B.3 Introduction to data storage methods
+### B.4 Introduction to data storage methods
+``Data Lakes`` and ``Data warehouses`` are two different storage systems. ``Data Lakes`` are not a replacement for ``data warehouses``.
+> A ``data warehouse`` is a **central repository** of structured data from many data sources. This data is **transformed, aggregated, and prepared** for business reporting and analysis.
+>
+> ![Alt text](fig/02.png)
+
+A ``data warehouse`` is a **central repository of information coming from one or more data sources**. Data flows into a data warehouse from transactional systems, relational databases, and other sources. These data sources can **include structured, semi-structured, and unstructured data**. 
+> **These data sources are transformed into structured data before they are stored in the data warehouse.**
+
+**Data is stored within the data warehouse using a schema**. A schema defines how data is stored within tables, columns, and rows. The schema enforces constraints on the data to ensure integrity of the data. The transformation process often involves the steps required to make the source data conform to the schema. Following the first successful ingestion of data into the data warehouse, the process of ingesting and transforming the data can continue at a regular cadence.
+
+Business analysts, data scientists, and decision makers access the data through business intelligence (BI) tools, SQL clients, and other analytics applications. Businesses use reports, dashboards, and analytics tools to extract insights from their data, monitor business performance, and support decision making. These reports, dashboards, and analytics tools are powered by data warehouses, which store data efficiently to minimize I/O and deliver query results at blazing speeds to hundreds and thousands of users concurrently.
+
+#### B.4.1 Data marts
+Data warehouses can be massive. Analyzing these huge stores of data can be confusing. Many organizations **need a way to limit the tables to those that are most relevant to the analytics users will be performing**.
+> A subset of data from a data warehouse is called a **data mart**. Data marts only focus on one subject or functional area
+
+#### B.4.2 Amazon Redshift benefits
+
+This is where ``Amazon Redshift`` comes in. ``Amazon Redshift`` overcomes all of these negatives by providing a cloud-based, scalable, secure environment for your data warehouse. ``Amazon Redshift`` is easy to set up, deploy, and manage and provides up to 10 times faster performance than other data warehousing solutions.
+
+#### B.4.3 Comparing data warehouses and data lakes
+
+**Analyzing a Data Warehouse**:
+
+For analysis to be most effective, it should be performed on data that has been processed and cleansed. This often means implementing an ETL operation to collect, cleanse, and transform the data. This data is then placed in a data warehouse. It is very common for data from many different parts of the organization to be combined into a single data warehouse.
+
+Amazon Redshift is a data warehousing solution specially designed for workloads of all sizes. Amazon Redshift Spectrum even provides the ability to query data that is housed in an Amazon S3 data lake.
+
+**Analyzing a Data Lakes**
+
+Data lakes extend data warehouses
+
+Data lakes provide customers a means for including unstructured and semi-structured data in their analytics. Analytic queries can be run over cataloged data within a data lake. This extends the reach of analytics beyond the confines of a single data warehouse.
+
+Businesses can securely store data coming from applications and devices in its native format, with high availability, durability, at low cost, and at any scale. Businesses can easily access and analyze data in a variety of ways using the tools and frameworks of their choice in a
+high-performance, cost-effective way without having to move large amounts of data between storage and analytics systems.
+
+**AWS: Data Lakes and Analytics**
+
+AWS provides a comprehensive portfolio of services that enable customers to build their data lakes in the cloud and analyze all their data with the broadest set of analytical approaches, including machine learning.
