@@ -10,6 +10,7 @@ https://ecotrust-canada.github.io/markdown-toc/
     - [B.2 Introduction to Amazon S3](#b2-introduction-to-amazon-s3)
       - [B.2.1 Amazon S3 concepts](#b21-amazon-s3-concepts)
       - [B.2.2-Accessing your content](#b22-accessing-your-content)
+    - [B.3 Introduction to data lakes](#b3-introduction-to-data-lakes)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -63,3 +64,7 @@ An **object** is composed of a file and any metadata that describes that file. T
 Once objects have been stored in an ``Amazon S3`` bucket, they are given an **object key**. Use this, along with the bucket name, to access the object.
 
 ![Alt text](fig/01.png)
+
+### B.3 Introduction to data lakes
+> A data lake is a **centralized repository** that allows you to store **structured, semistructured, and unstructured** data at any scale.
+``Data lakes`` promise the ability to store all data for a business in a single repository. You can leverage data lakes to store large volumes of data instead of persisting that data in data warehouses. ``Data lakes``, such as those built in ``Amazon S3``, are generally less expensive than specialized big data storage solutions.
