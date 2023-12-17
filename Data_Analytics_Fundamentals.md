@@ -11,6 +11,10 @@ https://ecotrust-canada.github.io/markdown-toc/
       - [B.2.1 Amazon S3 concepts](#b21-amazon-s3-concepts)
       - [B.2.2-Accessing your content](#b22-accessing-your-content)
     - [B.3 Introduction to data lakes](#b3-introduction-to-data-lakes)
+      - [B.3.1 Benefits of a data lake on AWS](#b31-benefits-of-a-data-lake-on-aws)
+      - [B.3.2 Amazon EMR and data lakes](#b32-amazon-emr-and-data-lakes)
+      - [B.4 AWS Lake Formation](#b4-aws-lake-formation)
+    - [B.3 Introduction to data storage methods](#b3-introduction-to-data-storage-methods)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -68,3 +72,23 @@ Once objects have been stored in an ``Amazon S3`` bucket, they are given an **ob
 ### B.3 Introduction to data lakes
 > A data lake is a **centralized repository** that allows you to store **structured, semistructured, and unstructured** data at any scale.
 ``Data lakes`` promise the ability to store all data for a business in a single repository. You can leverage data lakes to store large volumes of data instead of persisting that data in data warehouses. ``Data lakes``, such as those built in ``Amazon S3``, are generally less expensive than specialized big data storage solutions.
+* Single source of truth
+* Store any type of data, regardless f structure
+* Can be analyzed using artificial intelligence (AI) and machine learning.
+
+#### B.3.1 Benefits of a data lake on AWS
+* **Cost-effective data storage solution**
+* Implement industry-leading **security and compliance**.
+* Allow you to take advantage of **many different data collection and ingestion tools** to ingest data into your data lake.
+* **Categorize and manage your data** simply and efficiently.
+* Help you turn data into **meaningful insights**.
+
+#### B.3.2 Amazon EMR and data lakes
+``Apache Hadoop`` and ``Spark`` are both supported by ``Amazon EMR``, which has the ability to help businesses easily, quickly, and cost-effectively implement data processing solutions based on ``Amazon S3`` data lakes.
+
+#### B.4 AWS Lake Formation 
+``AWS Lake Formation`` makes it easy to **ingest, clean, catalog, transform, and secure** your data and make it available for analysis and machine learning. ``Lake Formation`` gives you a central console where you can discover data sources, set up transformation jobs to move data to an ``Amazon S3`` data lake, remove duplicates and match records, catalog data for access by analytic tools, configure data access and security policies, and audit and control access from AWS analytic and machine learning services.
+
+``Lake Formation`` automatically configures underlying AWS services to ensure compliance with your defined policies. If you have set up transformation jobs spanning AWS services, ``Lake Formation`` **configures the flows, centralizes their orchestration, and lets you monitor the processing of your jobs**.
+
+### B.3 Introduction to data storage methods
