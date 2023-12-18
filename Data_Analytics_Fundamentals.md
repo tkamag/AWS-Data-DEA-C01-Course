@@ -19,6 +19,9 @@ https://ecotrust-canada.github.io/markdown-toc/
       - [B.4.2 Amazon Redshift benefits](#b42-amazon-redshift-benefits)
       - [B.4.3 Comparing data warehouses and data lakes](#b43-comparing-data-warehouses-and-data-lakes)
     - [B.5 Amazon EMRFS](#b5-amazon-emrfs)
+  - [C Lesson 3: Velocity – data processing](#c-lesson-3-velocity--data-processing)
+    - [C.1 Introduction to data processing methods](#c1-introduction-to-data-processing-methods)
+    - [C.2 Attributes of batch and stream processing](#c2-attributes-of-batch-and-stream-processing)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -152,3 +155,33 @@ AWS provides a comprehensive portfolio of services that enable customers to buil
 * ``OLTP databases`` serve as a structured store for new and frequently updated data. They may not perform well when analytical queries are run frequently.
 
 * ``Hadoop clusters`` provide extremely fast and reliable ingestion and processing of data.
+
+## C Lesson 3: Velocity – data processing
+> When businesses **need rapid insights** from the data they are collecting, **but the systems in place simply cannot meet the need, there's a velocity problem.**
+
+**Data processing** means the collection and manipulation of data to produce meaningful information. 
+
+**Data collection** is divided into two parts:
+* **Data collection**: Gathering data from multiple source for single source storage and analysis.
+* **Data processing**: Formatting, organizing and controlling data. 
+
+### C.1 Introduction to data processing methods
+``Data processing`` may only need to **be performed once a day**, making results available the following morning, or it may need to be performed and made available immediately. This variance in the speed at which data processing must occur can be broken down into four categories.
+
+Two types of data processing: 
+* **Batch processing** (processing content in batches at certain intervals). Used to get deep insights from complex analytics.
+* **Stream processing** (processing data in a stream—in other words, processing data that’s generated continuously, in small datasets). Used to get initial insights and real-time feedback.
+
+![Alt text](fig/03.png)
+
+* Rapid collection of data followed by the rapid processing of data is another common challenge ==> **Stream processing system.**
+
+* Slower collection of data followed by a rapid processing requirement is a common challenge ==> **Batch processing system.**
+
+### C.2 Attributes of batch and stream processing
+The table below highlights the difference between batch and stream processing: 
+![Alt text](fig/04.png)
+
+![Alt text](fig/05.png)
+
+![Alt text](fig/06.png)
