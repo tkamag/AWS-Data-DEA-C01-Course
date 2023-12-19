@@ -33,6 +33,7 @@ https://ecotrust-canada.github.io/markdown-toc/
   - [D Lesson 3: Variety – data structure and types](#d-lesson-3-variety--data-structure-and-types)
     - [D.1 Introduction to source data storage](#d1-introduction-to-source-data-storage)
       - [D.1.1 Data source types](#d11-data-source-types)
+    - [D.2 Introduction to structured data stores](#d2-introduction-to-structured-data-stores)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -294,3 +295,4 @@ In this architecture,
 
 > **Unstructured data** is the **frozen** ocean—full of **exactly what you need** but separated by all kinds of **stuff you don’t need**.
 
+### D.2 Introduction to structured data stores
