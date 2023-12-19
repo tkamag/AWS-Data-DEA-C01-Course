@@ -31,6 +31,8 @@ https://ecotrust-canada.github.io/markdown-toc/
       - [C.3.3 Stream processing architecture](#c33-stream-processing-architecture)
       - [C.3.4 Stream processing use cases](#c34-stream-processing-use-cases)
   - [D Lesson 3: Variety – data structure and types](#d-lesson-3-variety--data-structure-and-types)
+    - [D.1 Introduction to source data storage](#d1-introduction-to-source-data-storage)
+      - [D.1.1 Data source types](#d11-data-source-types)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -266,3 +268,29 @@ In this architecture,
 * **Analyze IoT device data**
 
 ## D Lesson 3: Variety – data structure and types
+> When your business becomes **overwhelmed** by the **sheer number of data sources** to analyze and you **cannot find systems** to perform the analytics, you know you have a **variety** problem.
+### D.1 Introduction to source data storage
+
+**Transactional databases** experience heavy write and update operations, while **analytical databases** experience heavy read operations.
+
+#### D.1.1 Data source types
+
+**Structured data** is stored in a tabular format, often within a database management system (DBMS). This data is organized based on a relational data model, which defines and standardizes data elements and their relation to one another. Data is stored in rows, with each row representing a single instance of a thing (for example, a customer). These rows are well understood due to the table schema, which explains what each field in the table represents. This makes structured data easy to query.
+> **The downside to structured data is its lack of flexibility.**
+> 
+**Examples of structured data applications** include Amazon RDS, Amazon Aurora, MySQL, MariaDB, PostgreSQL, Microsoft SQL Server, and Oracle.
+>
+**Semi-structured data** is stored in the form of elements within a file. This data is organized based on elements and the attributes that define them. It doesn't conform to data models or schemas. **Semi-structured** data is considered to have a self-describing structure. Each element is a single instance of a thing, such as a conversation. The attributes within an element define the characteristics of that conversation. Each conversation element can track different attributes. This makes semi-structured data quite flexible and able to scale to meet the changing demands of a business much more rapidly than structured data.
+
+**Examples of semi-structured data** stores include CSV, XML, JSON, Amazon DynamoDB, Amazon Neptune, and Amazon ElastiCache.
+
+**Unstructured data** is stored in the form of files. This data doesn't conform to a predefined data model and isn't organized in a predefined manner. Unstructured data can be text-heavy, photographs, audio recordings, or even videos. Unstructured data is full of irrelevant information, which means the files need to be preprocessed to perform meaningful analysis. This can be done in many ways. For example, services can add tags to the data based on rules defined for the types of files. The data can also be cataloged to make it available to query services.
+
+**Examples of unstructured data** include emails, photos, videos, clickstream data, Amazon S3, and Amazon Redshift Spectrum.
+
+> **Structured data** is hot, **immediately ready** to be analyzed. 
+
+> **Semi structured data** is lukewarm, some data will be ready to go and other data **may need to be cleansed** or preprocessed. 
+
+> **Unstructured data** is the **frozen** ocean—full of **exactly what you need** but separated by all kinds of **stuff you don’t need**.
+
