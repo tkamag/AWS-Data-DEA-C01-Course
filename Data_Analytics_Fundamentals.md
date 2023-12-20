@@ -37,6 +37,7 @@ https://ecotrust-canada.github.io/markdown-toc/
       - [D.2.1 Types of information systems](#d21-types-of-information-systems)
         - [D.2.1.1 OLTP databases(Operational databases)](#d211-oltp-databasesoperational-databases)
         - [D.2.1.2 OLAP databases(data Warehouses)](#d212-olap-databasesdata-warehouses)
+    - [D.3 Row-based and columnar data indexing](#d3-row-based-and-columnar-data-indexing)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -326,3 +327,26 @@ All decisions about the organization of data and storage of attributes is based 
 
 All decisions about the organization of data and storage of attributes are based on the types of queries and other analytics that will be performed using the data. 
 The effectiveness of an ``OLAP`` system **is often measured by the response time of query results.**
+
+![Alt text](fig/15.png)
+
+### D.3 Row-based and columnar data indexing
+Data within a database should be indexed to allow a query to quickly find the data it needs to produce a result. Indexes control the way data is physically stored on disk. They physically group records into a predictable order based on the key values within the table. This plays a huge part in the speed and efficiency of queries.
+
+In an ``OLTP system``, the most common queries are called **lookup queries**. These queries need to return several columns of data for each matching record. The filters on this data are generally based on the key columns in that table. In this type of system, you might query to get details for a specific order.
+
+In an ``OLAP system``, the most common queries are **aggregate queries**. These queries take large numbers of rows and reduce them to a single row by aggregating the values in one or more columns. In this type of system, you might query to find out the total number of items sold on a specific date.
+
+> Running **a row-based index for an OLAP database can cause an excessive amount of unneeded data, called data waste**, to be read into memory for every query, because every column of every row must be loaded. **This is where columnar indexing comes in.**
+
+Both ``OLTP`` and ``OLAP`` systems can use either indexing method. However, **there are advantages to choosing the method that is best suited to the types of queries that will be run the majority of the time**.
+
+* For ``OLTP`` or ``OLAP`` databases **using row-based indexing**, Amazon have ``Amazon Relational Database Service``, also called ``Amazon RDS``. When you implement ``Amazon RDS``, you have the choice between many popular database management systems such as ``Amazon Aurora, PostgreSQL, MySQL, MariaDB, Oracle, and SQL Server``.
+
+* For ``OLAP`` databases using **columnar indexing**, Amazon have ``Amazon Redshift``, which is a **fast, scalable data warehouse** that makes it simple and cost-effective to analyze all your data across your data warehouse and data lake. 
+
+![Alt text](fig/16.png)
+
+* **Flat-file data** is stored without strict structure.
+* **OLTP data** is structured for data entry purposes.
+* **OLAP data** is structured for data retrieval purposes.
