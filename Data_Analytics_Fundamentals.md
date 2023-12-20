@@ -34,6 +34,9 @@ https://ecotrust-canada.github.io/markdown-toc/
     - [D.1 Introduction to source data storage](#d1-introduction-to-source-data-storage)
       - [D.1.1 Data source types](#d11-data-source-types)
     - [D.2 Introduction to structured data stores](#d2-introduction-to-structured-data-stores)
+      - [D.2.1 Types of information systems](#d21-types-of-information-systems)
+        - [D.2.1.1 OLTP databases(Operational databases)](#d211-oltp-databasesoperational-databases)
+        - [D.2.1.2 OLAP databases(data Warehouses)](#d212-olap-databasesdata-warehouses)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -296,3 +299,30 @@ In this architecture,
 > **Unstructured data** is the **frozen** ocean—full of **exactly what you need** but separated by all kinds of **stuff you don’t need**.
 
 ### D.2 Introduction to structured data stores
+> **Structured data** is stored in a tabular format, often within a database management system. 
+* **Flat-file data** : There is no consistency from one file to the next. Joining data together is nearly impossible without pre-processing, and there is no way to gauge the integrity of the data.
+* **Relational databases** : They allow you to rapidly collect, update, and query data. One of their greatest strengths is their ability to enforce ACID compliancy. 
+
+#### D.2.1 Types of information systems
+There are two main ways—known as information systems—of organizing data within a relational database. The data can be organized to focus on the storage of transactions or the process of analyzing transactions.
+
+##### D.2.1.1 OLTP databases(Operational databases)
+
+**Transactional databases** are called online ``transaction processing (OLTP)`` databases. 
+> The data gathered by ``OLTP databases`` **is often fed into another type of database that focuses on analyzing the transactional data**. 
+
+``Online transaction processing (OLTP)`` databases, often called **operational databases**, logically organize data **into tables with the primary focus being on the speed of data entry**. 
+> These databases are characterized by **a large number of insert, update, and delete operations**.
+
+All decisions about the organization of data and storage of attributes is based on ensuring **rapid data entry and updates**.
+> The effectiveness of an OLTP system is often measured by the number of transactions per second.
+
+``Online analytical processing (OLAP)`` databases **gather data from OLTP systems for the purpose of organizing it for analytical operations.**
+
+##### D.2.1.2 OLAP databases(data Warehouses)
+``Online analytical processing (OLAP)`` databases, often called **data warehouses**, logically **organize data into tables with the primary focus being the speed of data retrieval through queries**. 
+> These databases are characterized **by a relatively low number of write operations and the lack of update and delete operations**.
+
+
+All decisions about the organization of data and storage of attributes are based on the types of queries and other analytics that will be performed using the data. 
+The effectiveness of an ``OLAP`` system **is often measured by the response time of query results.**
