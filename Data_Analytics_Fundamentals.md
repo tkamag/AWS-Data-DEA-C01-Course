@@ -204,6 +204,7 @@ The table below highlights the difference between batch and stream processing:
 ![Alt text](fig/06.png)
 
 ### C.3 Introduction to batch data processing
+
 ![Alt text](fig/07.png)
 
 ``Batch processing`` is often thought of as a slow process. This is not the case. ``Batch processing`` must quickly and efficiently consume a huge amount of data all at once. This poses challenges that do not exist with ``stream processing``.
