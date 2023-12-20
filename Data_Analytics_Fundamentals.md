@@ -173,6 +173,7 @@ AWS provides a comprehensive portfolio of services that enable customers to buil
 * ``Hadoop clusters`` provide extremely fast and reliable ingestion and processing of data.
 
 ## C Lesson 3: Velocity – data processing
+
 > When businesses **need rapid insights** from the data they are collecting, **but the systems in place simply cannot meet the need, there's a velocity problem.**
 
 **Data processing** means the collection and manipulation of data to produce meaningful information. 
