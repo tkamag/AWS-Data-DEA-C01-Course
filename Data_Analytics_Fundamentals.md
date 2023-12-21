@@ -38,6 +38,16 @@ https://ecotrust-canada.github.io/markdown-toc/
         - [D.2.1.1 OLTP databases(Operational databases)](#d211-oltp-databasesoperational-databases)
         - [D.2.1.2 OLAP databases(data Warehouses)](#d212-olap-databasesdata-warehouses)
     - [D.3 Row-based and columnar data indexing](#d3-row-based-and-columnar-data-indexing)
+    - [D.3 Introduction to semi-structured and unstructured data stores](#d3-introduction-to-semi-structured-and-unstructured-data-stores)
+      - [D.3.1 Non-relational databases](#d31-non-relational-databases)
+        - [D.3.1.1 Documents stores](#d311-documents-stores)
+        - [D.3.1.2 Key-values stores](#d312-key-values-stores)
+      - [D.3.2 Schema changes in relational and non-relational databases](#d32-schema-changes-in-relational-and-non-relational-databases)
+        - [D.3.2.1 Data Schemas](#d321-data-schemas)
+        - [D.3.2.2 Schema change in a relational database](#d322-schema-change-in-a-relational-database)
+        - [D.3.2.2 Schema change in a non-relational database](#d322-schema-change-in-a-non-relational-database)
+      - [D.3.2 Graph databases](#d32-graph-databases)
+    - [D.4 Comparing relational and non-relational databases](#d4-comparing-relational-and-non-relational-databases)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -304,7 +314,7 @@ In this architecture,
 ### D.2 Introduction to structured data stores
 > **Structured data** is stored in a tabular format, often within a database management system. 
 * **Flat-file data** : There is no consistency from one file to the next. Joining data together is nearly impossible without pre-processing, and there is no way to gauge the integrity of the data.
-* **Relational databases** : They allow you to rapidly collect, update, and query data. One of their greatest strengths is their ability to enforce ACID compliancy. 
+* **Relational databases** : They allow you to rapidly collect, update, and query data. One of their greatest strengths is their ability to enforce ACID compliancy. (RDS Read-Replica and so on)
 
 #### D.2.1 Types of information systems
 There are two main ways—known as information systems—of organizing data within a relational database. The data can be organized to focus on the storage of transactions or the process of analyzing transactions.
@@ -352,3 +362,99 @@ Both ``OLTP`` and ``OLAP`` systems can use either indexing method. However, **th
 * **Flat-file data** is stored without strict structure.
 * **OLTP data** is structured for data entry purposes.
 * **OLAP data** is structured for data retrieval purposes.
+
+### D.3 Introduction to semi-structured and unstructured data stores
+Semi-structured and unstructured data are often stored in non-relational database systems, sometimes called NoSQL databases. This term can cause a bit of confusion. It is important to remember that SQL is a way of querying data. It implies precise structure. Non-relational or NoSQL does not mean the data stored cannot be queried using SQL. 
+> **A better way to think of it is not only SQL.**
+
+#### D.3.1 Non-relational databases
+##### D.3.1.1 Documents stores
+``Document stores`` **are a type of non-relational database** that store semi-structured and unstructured data in the form of files. These files range in form but include JSON, BSON, and XML. The files can be navigated using numerous languages including Python and Node.js.
+
+**Strengths:**
+* Flexibility
+* No need to plan for a specific type of data when creating one
+* Easy to scale
+
+**Weaknesses:**
+* Sacrifice ACID compliance for flexibility
+* Cannot query across files
+  
+##### D.3.1.2 Key-values stores
+``Key-value`` databases **are a type of non-relational database that store unstructured data** in the form of key-value pairs.
+
+Logically, **data is stored in a single table**. Within the table, the values are associated with a specific key. The values are stored in the form of blob objects and do not require a predefined schema. The values can be of nearly any type.
+
+**Strengths: 
+
+* Very flexible
+* Able to handle a wide variety of data types
+* Keys are linked directly to their values with no need for indexing or complex join operations
+* Content of a key can easily be copied to other systems without reprogramming the data
+
+**Weaknesses**: 
+
+* Impossible to query values because they are stored as a single blob
+* Updating or editing the content of a value is quite difficult
+* Not all objects are easily modeled as key-value pairs
+
+#### D.3.2 Schema changes in relational and non-relational databases 
+
+To understand the powerful flexibility in non-relational databases, **you need to understand what it takes to make changes to the organization of data between relational and non-relational database objects**.
+##### D.3.2.1 Data Schemas
+A **relational database stores data in the form of tables that contain rows**. Each row represents a single product that can be sold. Each column stores an attribute of that product
+
+A **non-relational database stores data in the form of files that contain bracketed groups of information**. Each group of information represents a single product.
+
+##### D.3.2.2 Schema change in a relational database
+The needs of the business have changed. You need to add a new column to track each product's rating. Not all products have a rating yet, so **you need to allow the column to accept NULL values**.
+
+To add a new column to the table, you must:
+
+1. Execute a SQL command to add the column.
+2. The table now contains an empty column. 
+3. Populate the new column with a value for each existing record.
+
+##### D.3.2.2 Schema change in a non-relational database
+When the same requirement is placed on data in a non-relational database, the remedy is quite different. **You simply add the data for that record**.
+
+With a **non-relational database, each record can have its own set of attributes**. 
+> **This flexibility is one of the greatest benefits of non-relational databases.**
+>
+#### D.3.2 Graph databases
+``Graph databases`` **are purpose-built to store any type of data: structured, semi-structured, or unstructured**. The purpose for organization in a graph database is to navigate relationships
+Data within the database is queried using specific languages associated with the software tool you have implemented.
+
+Logically, **data is stored as a node, and edges store information on the relationships between nodes**. An edge always has a start node, end node, type, and direction, and an edge can describe parent-child relationships, actions, ownership, and the like. There is no limit to the number and kind of relationships a node can have.
+
+**Strengths:**
+
+* Allow simple, fast retrieval of complex hierarchical structures
+* Great for real-time big data mining
+* Can rapidly identify common data points between nodes
+* Great for making relevant recommendations and allowing for rapid querying of those relationships
+
+**Weaknesses:**
+
+* Cannot adequately store transactional data
+* Analysts must learn new languages to query the data
+* Performing analytics on the data may not be as efficient as with other database types
+
+### D.4 Comparing relational and non-relational databases
+![Alt text](fig/17.png)
+
+![Alt text](fig/18.png)
+
+* A **multi-demensional data warehouse** is best suited for a relational database.
+
+* **Log files** are generally produced in the form of **XML or JSON files**, which are very well suited for storage in a **document database**.
+
+* Data collected from **online gaming websites is often very rapid in generation and temporary in nature**. This data is well suited for a **key-value database**.
+
+* **Transactional data** from a social subscription service could be stored in a **relational database, but due to the social component, it would be better suited to the advantages gained by using a graph database**.
+
+![Alt text](fig/19.png)
+
+* **Non-relational databases** are optimized for compute and are good at scaling horizontally. 
+* **The data design for non-relational databases is denormalized document, wide column, or key-value based**. 
+* Lastly, **non-relational databases are commonly used for OLTP web and mobile applications, but not for OLTP business systems**.
