@@ -57,6 +57,10 @@ https://ecotrust-canada.github.io/markdown-toc/
       - [D.2.4 Database schemas](#d24-database-schemas)
       - [D.2.5 Information schema](#d25-information-schema)
     - [D.3 Understanding database consistency](#d3-understanding-database-consistency)
+      - [D.3.1 ACID](#d31-acid)
+        - [D.3.1.1 ACID compliance](#d311-acid-compliance)
+      - [D.3.2 BASE](#d32-base)
+        - [D.3.2.1 BASE compliance](#d321-base-compliance)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -536,4 +540,40 @@ When you prepare to begin evaluating the data integrity of a source system, you 
 
  ![Alt text](fig/20.png)
 
- ### D.3 Understanding database consistency
+### D.3 Understanding database consistency
+ To maintain **veracity in stored data, consistency is key**. When data is stored as files, consistency is controlled by the application that is developing the files. When data is stored in a database, consistency is the responsibility of the database that is housing the data. In this topic, we will discuss the two methods that databases implement: ``ACID`` and ``BASE``.
+
+#### D.3.1 ACID
+
+``ACID`` is an acronym for **Atomicity, Consistency, Isolation, and Durability**. It is a method for maintaining consistency and integrity in a structured database.
+##### D.3.1.1 ACID compliance
+
+``ACID`` is the long-standing bastion of relational data integrity. In a database such as ``Amazon RDS``, **a sequence of statements processed together is called a transaction**. Millions of transactions can be performed consecutively. The data and the constraints on that data are very active in relational databases.
+
+> The goal of an **ACID-compliant** database is **to return the most recent version of all data and ensure that data entered into the system meets all rules and constraints that are assigned at all times.**
+
+**Many NoSQL databases choose not to enforce ACID consistency**. Why? Well, it comes down to the fact that ACID consistency is most concerned about the absolute consistency of all data. Enforcing this consistency takes time. This is time that many NoSQL databases cannot afford if they are to meet the demands of the applications using them.
+
+This is where ``BASE`` consistency comes in. ``BASE`` **consistency is most concerned about the rapid availability of data. BASE consistency is commonly implemented for NoSQL databases, in distributed systems and on unstructured data stores.**
+
+#### D.3.2 BASE
+
+``BASE`` is an acronym for **Basically Available Soft state Eventually consistent**. It is **a method for maintaining consistency and integrity in a structured or semi-structured database.**
+##### D.3.2.1 BASE compliance
+
+``BASE`` **supports data integrity in non-relational databases, which are sometimes called NoSQL databases**. Non-relational databases like ``Amazon DynamoDB`` still use transactions for processing requests. These databases are hyperactive, and **the primary concern is the availability of the data over the consistency of the data**. 
+> **To ensure the data is highly available, changes to data are made available immediately on the instance where the change was made**. 
+However, it may take time for that change to be replicated across the fleet of instances. The aim is that the change will eventually be fully consistent across the fleet. 
+
+* **Basically Available**: ``BA`` **allows for one instance to receive a change request and make that change available immediately**. The system will always guarantee a response to each request. However, it is possible that the response may be a failure or stale data if the change has not been replicated to all nodes. In an ``ACID`` system, **the change would not become available until all instances were consistent**. 
+> **Consistency in a ``BASE`` model is traded for availability**.
+>
+* **Soft State**
+In a ``BASE`` system, there are allowances for partial consistency across distributed instances. For this reason, ``BASE`` **systems are considered to be in a soft state, also known as a changeable state**.
+
+In an ``ACID`` system, **the database is considered to be in a hard state because users cannot access data that is not fully consistent**.
+
+* **Eventual consistent**
+This reinforces the other letters in the acronym. The data will be eventually consistent. In other words, a change will eventually be made to every copy. However, the data will be available in whatever state it is during the propagation of the change.
+
+
