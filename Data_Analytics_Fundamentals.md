@@ -48,6 +48,15 @@ https://ecotrust-canada.github.io/markdown-toc/
         - [D.3.2.2 Schema change in a non-relational database](#d322-schema-change-in-a-non-relational-database)
       - [D.3.2 Graph databases](#d32-graph-databases)
     - [D.4 Comparing relational and non-relational databases](#d4-comparing-relational-and-non-relational-databases)
+  - [D Lesson 4: Veracity – cleansing and transformation](#d-lesson-4-veracity--cleansing-and-transformation)
+    - [D.1 Definitions](#d1-definitions)
+    - [D.2 The problem of veracity](#d2-the-problem-of-veracity)
+      - [D.2.1 Understanding data integrity](#d21-understanding-data-integrity)
+      - [D.2.2 Definitions](#d22-definitions)
+      - [D.2.3 Identifying data integrity issues](#d23-identifying-data-integrity-issues)
+      - [D.2.4 Database schemas](#d24-database-schemas)
+      - [D.2.5 Information schema](#d25-information-schema)
+    - [D.3 Understanding database consistency](#d3-understanding-database-consistency)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -458,3 +467,73 @@ Logically, **data is stored as a node, and edges store information on the relati
 * **Non-relational databases** are optimized for compute and are good at scaling horizontally. 
 * **The data design for non-relational databases is denormalized document, wide column, or key-value based**. 
 * Lastly, **non-relational databases are commonly used for OLTP web and mobile applications, but not for OLTP business systems**.
+
+## D Lesson 4: Veracity – cleansing and transformation
+> When you have data that is **ungoverned**, coming from numerous, **dissimilar systems** and **cannot curate the data** in meaningful ways, you know you have a **veracity** problem.
+>
+### D.1 Definitions
+
+**Curation** is the action or process of selecting, organizing, and looking after the items in a collection.
+
+**Data integrity** is the maintenance and assurance of the accuracy and consistency of data over its entire lifecycle.
+
+**Data veracity** is the degree to which data is accurate, precise, and trusted.
+
+### D.2 The problem of veracity
+Data changes over time. As it is transferred from one process to another, and through one system and another, there are opportunities for the integrity of the data to be negatively impacted. You must ensure that you maintain a high level of certainty that the data you are analyzing is trustworthy.
+
+#### D.2.1 Understanding data integrity
+**Data integrity** is all about making sure your data is trustworthy. **Data integrity** is a broad term that is applied in different ways in each phase of the data lifecycle.
+*  In the **creation phase, data integrity means ensuring data accuracy**. This involves a certain amount of trust in the systems that collect the data. Relational databases use ACID compliance to enforce data integrity. Making sure your data is accurate requires regular audits of your software systems to confirm two things: that they’re producing valid data or files and that changes won’t negatively impact the system’s integrity.
+
+* In the **aggregation  phase, data integrity in this phase ensures that the user gets the value they expect from the aggregate provided to them**. The loss of integrity in this phase is often the result of poor naming of aggregate values and poor planning on the part of the developer in meeting the needs of the users.
+
+* In the **storage phase, data integrity is about maintaining the data in a secure form and making sure all changes are accurate.** Securing data means ensuring that stable data is not changed and that volatile data can only be updated by authorized users and services. 
+
+* In the **access phase, your data becomes visible to users**. At this stage, data is provided in a read-only format. This means that there are no changes allowed to the data, and the data’s integrity cannot be changed. Data integrity at this phase is a proof of the integrity of all the other phases. 
+
+#### D.2.2 Definitions
+
+* **Data cleansing** is the process of **detecting and correcting corruptions within data**.
+* **Referential integrity** is the **process of ensuring that the constraints of table relationships are enforced**.
+* **Domain integrity** is the **process of ensuring that the data being entered into a field matches the data type defined for that field**.
+* **Entity integrity** is the **process of ensuring that the values stored within a field match the constraints defined for that field.**
+
+#### D.2.3 Identifying data integrity issues
+
+As a data analyst, you may be called upon to perform data integrity checks. During this process, you will be looking for potential sources of data integrity problems.
+
+Data can come from both internal and external sources. **It is highly unlikely that you will be able to have influence on data generated outside of your business**. However, within your business, you may have the ability to make recommendations on improvements for the data sources you will be interacting with.
+
+**Here are a few best practices to help you identify data integrity issues.**
+
+* **Know what clean looks like**
+
+* **knows where errors are coming from**
+
+* **knows what acceptable changes look like**
+
+* **know if the original data has value**
+
+#### D.2.4 Database schemas
+As we have discussed, **relational databases rely upon database schemas to organize the content within the database and to enforce both referential and domain integrity**.
+
+A **data schema is the set of metadata used by the database to organize data objects and enforce integrity constraints**. The **schema defines the attributes of the database**, providing descriptions of each object and how it interacts with other objects within the database. One or more schemas can reside on the same database.
+
+There are two types of schemas: 
+* **logical**: Logical schemas **focus on the constraints to be applied to the data within the database**. This includes the organization of tables, views, and integrity checks. 
+* **Physical**: Physical schemas **focus on the actual storage of data on disk or in a cloud repository**. These schemas include details on the files, indices, partitioned tables, clusters, and more.
+
+#### D.2.5 Information schema
+Have you ever wondered how a DBMS manages all of the databases, tables, and relationships? The answer is found in the **information schema**. 
+> An **information schema is a database of metadata that houses information on the data objects within a database**.
+
+When you prepare to begin evaluating the data integrity of a source system, you need to know the following:
+* What does clean look like?
+* Where are the errors most likely to come from?
+* What do acceptable changes look like?
+* Does the original data have value?
+
+ ![Alt text](fig/20.png)
+
+ ### D.3 Understanding database consistency
