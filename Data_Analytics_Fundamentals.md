@@ -576,4 +576,4 @@ In an ``ACID`` system, **the database is considered to be in a hard state becaus
 * **Eventual consistent**
 This reinforces the other letters in the acronym. The data will be eventually consistent. In other words, a change will eventually be made to every copy. However, the data will be available in whatever state it is during the propagation of the change.
 
-
+![Alt text](fig/20.png)
