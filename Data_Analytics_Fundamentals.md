@@ -61,6 +61,8 @@ https://ecotrust-canada.github.io/markdown-toc/
         - [D.3.1.1 ACID compliance](#d311-acid-compliance)
       - [D.3.2 BASE](#d32-base)
         - [D.3.2.1 BASE compliance](#d321-base-compliance)
+    - [D.4 Introduction to the ETL process](#d4-introduction-to-the-etl-process)
+      - [D.4.1 AWS services in the ETL process](#d41-aws-services-in-the-etl-process)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -577,3 +579,28 @@ In an ``ACID`` system, **the database is considered to be in a hard state becaus
 This reinforces the other letters in the acronym. The data will be eventually consistent. In other words, a change will eventually be made to every copy. However, the data will be available in whatever state it is during the propagation of the change.
 
 ![Alt text](fig/20.png)
+
+### D.4 Introduction to the ETL process
+Your data analysis solution requires a process **to gather, transform, and move data into a new analytical data store**. This process is known as an ``ETL`` operation. 
+> ``ETL`` operations **allow you to ensure that your data has the accuracy, precision, and depth you need to properly analyze the data and produce a complete data narrative through reports and dashboards.** 
+
+#### D.4.1 AWS services in the ETL process
+
+AWS provides services for every phase of the ETL process. From data source storage to reporting, AWS has you covered.
+
+**Transforming your data – comparing Amazon EMR and AWS Glue**
+
+When it comes to performing the data transformation component of ETL, **there are two options within AWS**: ``Amazon EMR`` and ``AWS Glue``. These two services provide similar results but require different amounts of knowledge and time investment.
+
+* ``Amazon EMR`` is a **more hands-on approach to creating your data pipeline**. This service provides a **robust data collection and processing platform**. Using this service requires you to have strong technical knowledge and know-how on your team. The upside of this is that **you can create a more customized pipeline to fit your business needs**. Additionally, **your infrastructure costs may be lower than running the same workload** on ``AWS Glue``.
+
+* ``AWS Glue`` **is a serverless, managed ETL tool that provides a much more streamlined experience** than ``Amazon EMR``. This **makes the service great for simple ETL tasks, but you will not have as much flexibility** as with ``Amazon EMR``. You can also use ``AWS Glue`` **as a metastore for your final transformed** data by using the ``AWS Glue Data Catalog``. This catalog is a drop-in replacement for a Hive metastore.
+
+When making your decision about which of these tools to work with, decide with the end in mind. Are you going to want a continuous data pipeline that requires very little overhead? Do you need massive parallel data processing? How much customization will your data solution require?
+
+
+* ``AWS ETL`` services allow you to transform one data source type into a different storage format, including  relational, non-relational, and file-based destination formats.
+
+* ``AWS ETL`` services are easy to get started with, and you only pay for what you use.
+
+* These services allow you to use ``Apache Hadoop``, if you are comfortable with it, or use a number of other frameworks and even ``AWS Glue``, which requires no programming knowledge to use.
