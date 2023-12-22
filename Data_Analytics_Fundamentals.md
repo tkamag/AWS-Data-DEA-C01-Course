@@ -48,21 +48,37 @@ https://ecotrust-canada.github.io/markdown-toc/
         - [D.3.2.2 Schema change in a non-relational database](#d322-schema-change-in-a-non-relational-database)
       - [D.3.2 Graph databases](#d32-graph-databases)
     - [D.4 Comparing relational and non-relational databases](#d4-comparing-relational-and-non-relational-databases)
-  - [D Lesson 4: Veracity – cleansing and transformation](#d-lesson-4-veracity--cleansing-and-transformation)
-    - [D.1 Definitions](#d1-definitions)
-    - [D.2 The problem of veracity](#d2-the-problem-of-veracity)
-      - [D.2.1 Understanding data integrity](#d21-understanding-data-integrity)
-      - [D.2.2 Definitions](#d22-definitions)
-      - [D.2.3 Identifying data integrity issues](#d23-identifying-data-integrity-issues)
-      - [D.2.4 Database schemas](#d24-database-schemas)
-      - [D.2.5 Information schema](#d25-information-schema)
-    - [D.3 Understanding database consistency](#d3-understanding-database-consistency)
-      - [D.3.1 ACID](#d31-acid)
-        - [D.3.1.1 ACID compliance](#d311-acid-compliance)
-      - [D.3.2 BASE](#d32-base)
-        - [D.3.2.1 BASE compliance](#d321-base-compliance)
-    - [D.4 Introduction to the ETL process](#d4-introduction-to-the-etl-process)
-      - [D.4.1 AWS services in the ETL process](#d41-aws-services-in-the-etl-process)
+  - [E Lesson 4: Veracity – cleansing and transformation](#e-lesson-4-veracity--cleansing-and-transformation)
+    - [E.1 Definitions](#e1-definitions)
+    - [E.2 The problem of veracity](#e2-the-problem-of-veracity)
+      - [E.2.1 Understanding data integrity](#e21-understanding-data-integrity)
+      - [E.2.2 Definitions](#e22-definitions)
+      - [E.2.3 Identifying data integrity issues](#e23-identifying-data-integrity-issues)
+      - [E.2.4 Database schemas](#e24-database-schemas)
+      - [E.2.5 Information schema](#e25-information-schema)
+    - [E.3 Understanding database consistency](#e3-understanding-database-consistency)
+      - [E.3.1 ACID](#e31-acid)
+        - [E.3.1.1 ACID compliance](#e311-acid-compliance)
+      - [E.3.2 BASE](#e32-base)
+        - [E.3.2.1 BASE compliance](#e321-base-compliance)
+    - [E.4 Introduction to the ETL process](#e4-introduction-to-the-etl-process)
+      - [E.4.1 AWS services in the ETL process](#e41-aws-services-in-the-etl-process)
+  - [F Lesson 5: Value – reporting and business intelligence](#f-lesson-5-value--reporting-and-business-intelligence)
+    - [F.1 Introduction to analyzing data](#f1-introduction-to-analyzing-data)
+      - [F.1.1 Operational analytics](#f11-operational-analytics)
+      - [F.1.2 There are five types of analysis:](#f12-there-are-five-types-of-analysis)
+    - [F.2 Predictive analytics](#f2-predictive-analytics)
+    - [F.3 Cognitive analytics](#f3-cognitive-analytics)
+    - [F.4 Analytic services and velocity](#f4-analytic-services-and-velocity)
+      - [F.4.1 Batch Analytics](#f41-batch-analytics)
+      - [F.4.2 Interactive analytics](#f42-interactive-analytics)
+      - [F.4.3 Stream analytics](#f43-stream-analytics)
+    - [F.5 Data analysis solutions and AWS services](#f5-data-analysis-solutions-and-aws-services)
+      - [F.5.1 Ingest/Collect](#f51-ingestcollect)
+      - [F.5.1 Store](#f51-store)
+      - [F.5.1 Process/Analyze](#f51-processanalyze)
+      - [F.5.1 Consume/Visualize](#f51-consumevisualize)
+    - [F.5 Introduction to visualizing data](#f5-introduction-to-visualizing-data)
 > Organizations spend **millions** of dollars on data storage. The problem isn’t **finding** the data—the problem is **failing** to do anything with it. 
 ## A-Lesson 1: Introduction to data analysis solutions
 ### A.1-Benefits of data analytics on a big scale
@@ -474,10 +490,10 @@ Logically, **data is stored as a node, and edges store information on the relati
 * **The data design for non-relational databases is denormalized document, wide column, or key-value based**. 
 * Lastly, **non-relational databases are commonly used for OLTP web and mobile applications, but not for OLTP business systems**.
 
-## D Lesson 4: Veracity – cleansing and transformation
+## E Lesson 4: Veracity – cleansing and transformation
 > When you have data that is **ungoverned**, coming from numerous, **dissimilar systems** and **cannot curate the data** in meaningful ways, you know you have a **veracity** problem.
 >
-### D.1 Definitions
+### E.1 Definitions
 
 **Curation** is the action or process of selecting, organizing, and looking after the items in a collection.
 
@@ -485,10 +501,10 @@ Logically, **data is stored as a node, and edges store information on the relati
 
 **Data veracity** is the degree to which data is accurate, precise, and trusted.
 
-### D.2 The problem of veracity
+### E.2 The problem of veracity
 Data changes over time. As it is transferred from one process to another, and through one system and another, there are opportunities for the integrity of the data to be negatively impacted. You must ensure that you maintain a high level of certainty that the data you are analyzing is trustworthy.
 
-#### D.2.1 Understanding data integrity
+#### E.2.1 Understanding data integrity
 **Data integrity** is all about making sure your data is trustworthy. **Data integrity** is a broad term that is applied in different ways in each phase of the data lifecycle.
 *  In the **creation phase, data integrity means ensuring data accuracy**. This involves a certain amount of trust in the systems that collect the data. Relational databases use ACID compliance to enforce data integrity. Making sure your data is accurate requires regular audits of your software systems to confirm two things: that they’re producing valid data or files and that changes won’t negatively impact the system’s integrity.
 
@@ -498,14 +514,14 @@ Data changes over time. As it is transferred from one process to another, and th
 
 * In the **access phase, your data becomes visible to users**. At this stage, data is provided in a read-only format. This means that there are no changes allowed to the data, and the data’s integrity cannot be changed. Data integrity at this phase is a proof of the integrity of all the other phases. 
 
-#### D.2.2 Definitions
+#### E.2.2 Definitions
 
 * **Data cleansing** is the process of **detecting and correcting corruptions within data**.
 * **Referential integrity** is the **process of ensuring that the constraints of table relationships are enforced**.
 * **Domain integrity** is the **process of ensuring that the data being entered into a field matches the data type defined for that field**.
 * **Entity integrity** is the **process of ensuring that the values stored within a field match the constraints defined for that field.**
 
-#### D.2.3 Identifying data integrity issues
+#### E.2.3 Identifying data integrity issues
 
 As a data analyst, you may be called upon to perform data integrity checks. During this process, you will be looking for potential sources of data integrity problems.
 
@@ -521,7 +537,7 @@ Data can come from both internal and external sources. **It is highly unlikely t
 
 * **know if the original data has value**
 
-#### D.2.4 Database schemas
+#### E.2.4 Database schemas
 As we have discussed, **relational databases rely upon database schemas to organize the content within the database and to enforce both referential and domain integrity**.
 
 A **data schema is the set of metadata used by the database to organize data objects and enforce integrity constraints**. The **schema defines the attributes of the database**, providing descriptions of each object and how it interacts with other objects within the database. One or more schemas can reside on the same database.
@@ -530,7 +546,7 @@ There are two types of schemas:
 * **logical**: Logical schemas **focus on the constraints to be applied to the data within the database**. This includes the organization of tables, views, and integrity checks. 
 * **Physical**: Physical schemas **focus on the actual storage of data on disk or in a cloud repository**. These schemas include details on the files, indices, partitioned tables, clusters, and more.
 
-#### D.2.5 Information schema
+#### E.2.5 Information schema
 Have you ever wondered how a DBMS manages all of the databases, tables, and relationships? The answer is found in the **information schema**. 
 > An **information schema is a database of metadata that houses information on the data objects within a database**.
 
@@ -542,13 +558,13 @@ When you prepare to begin evaluating the data integrity of a source system, you 
 
  ![Alt text](fig/20.png)
 
-### D.3 Understanding database consistency
+### E.3 Understanding database consistency
  To maintain **veracity in stored data, consistency is key**. When data is stored as files, consistency is controlled by the application that is developing the files. When data is stored in a database, consistency is the responsibility of the database that is housing the data. In this topic, we will discuss the two methods that databases implement: ``ACID`` and ``BASE``.
 
-#### D.3.1 ACID
+#### E.3.1 ACID
 
 ``ACID`` is an acronym for **Atomicity, Consistency, Isolation, and Durability**. It is a method for maintaining consistency and integrity in a structured database.
-##### D.3.1.1 ACID compliance
+##### E.3.1.1 ACID compliance
 
 ``ACID`` is the long-standing bastion of relational data integrity. In a database such as ``Amazon RDS``, **a sequence of statements processed together is called a transaction**. Millions of transactions can be performed consecutively. The data and the constraints on that data are very active in relational databases.
 
@@ -558,10 +574,10 @@ When you prepare to begin evaluating the data integrity of a source system, you 
 
 This is where ``BASE`` consistency comes in. ``BASE`` **consistency is most concerned about the rapid availability of data. BASE consistency is commonly implemented for NoSQL databases, in distributed systems and on unstructured data stores.**
 
-#### D.3.2 BASE
+#### E.3.2 BASE
 
 ``BASE`` is an acronym for **Basically Available Soft state Eventually consistent**. It is **a method for maintaining consistency and integrity in a structured or semi-structured database.**
-##### D.3.2.1 BASE compliance
+##### E.3.2.1 BASE compliance
 
 ``BASE`` **supports data integrity in non-relational databases, which are sometimes called NoSQL databases**. Non-relational databases like ``Amazon DynamoDB`` still use transactions for processing requests. These databases are hyperactive, and **the primary concern is the availability of the data over the consistency of the data**. 
 > **To ensure the data is highly available, changes to data are made available immediately on the instance where the change was made**. 
@@ -580,11 +596,13 @@ This reinforces the other letters in the acronym. The data will be eventually co
 
 ![Alt text](fig/20.png)
 
-### D.4 Introduction to the ETL process
+![Alt text](fig/21.png)
+
+### E.4 Introduction to the ETL process
 Your data analysis solution requires a process **to gather, transform, and move data into a new analytical data store**. This process is known as an ``ETL`` operation. 
 > ``ETL`` operations **allow you to ensure that your data has the accuracy, precision, and depth you need to properly analyze the data and produce a complete data narrative through reports and dashboards.** 
 
-#### D.4.1 AWS services in the ETL process
+#### E.4.1 AWS services in the ETL process
 
 AWS provides services for every phase of the ETL process. From data source storage to reporting, AWS has you covered.
 
@@ -604,3 +622,97 @@ When making your decision about which of these tools to work with, decide with t
 * ``AWS ETL`` services are easy to get started with, and you only pay for what you use.
 
 * These services allow you to use ``Apache Hadoop``, if you are comfortable with it, or use a number of other frameworks and even ``AWS Glue``, which requires no programming knowledge to use.
+
+## F Lesson 5: Value – reporting and business intelligence
+> When you have **massive volumes** of **data** used to support a **few golden insights**, you may be missing the **value** of your data.
+
+### F.1 Introduction to analyzing data
+**Data analytics** comes in two classifications, **information analytics**, and **operational analytics**.
+* **Information analytics** is the process of analyzing information to find the value contained within it. It is a broad classification of data analytics that can cover topics from the financial accounting for a business to analyzing the number of entries and exits in a secured building.
+*  The second form of analytics is **operational analytics**. It is quite similar to information analytics; however, it focuses on the digital operations of an organization.
+
+> **Information analytics** is the process of analyzing information to find the value contained within it. This term is often synonymous with data analytics.
+
+#### F.1.1 Operational analytics
+There is another form of analytics. It is really a sub-form of **information analytics**, known as **operational analytics**. This form of analytics is used specifically to retrieve, analyze, and report on data for IT operations. The data includes system and security logs, complex IT infrastructure events and processes.
+
+Within AWS, the ``Amazon Elasticsearch Service`` is commonly used to implement operational analytics.
+
+#### F.1.2 There are five types of analysis: 
+* **Descriptive**: This form of analysis answers the questions **What happened ?**?
+* **Diagnostic**: This form of analysis answers the questions **Why dis it happen ?**?
+* **Predictive**: This form of analysis answers the questions **What will happen ?**?
+* **Prescriptive**: This form of analysis answers the questions **What should I do ?**?
+* **Cognitive**:This form of analysis answers the questions **What are recommended actions ?**?
+
+### F.2 Predictive analytics
+**Use case:** Need to create an application that can provide users predictions to minimize the stress of flights and delays due to weather.
+
+AWS has ``Amazon ML`` and a set of services (including artificial intelligence [AI]) **that make it easy for developers to apply predictive analytics to their data and add new, smart data-processing features to their applications**. Amazon has a long and rich tradition around machine learning (ML), and much of this accumulated technology has been packaged up for customer use with this service.
+
+The machine learning stack has three key layers:
+
+1. **Application services** to enable developers to plug prebuilt AI functionality into their apps without having to worry about the ML models that power these services
+2. **Platform services** to make it easy for any developer to get started and get deep with ML
+3. **Frameworks and interfaces** for ML practitioners
+
+![Alt text](fig/22.png)
+
+* ``Amazon DynamoDB`` is the storage location for the application data. 
+* ``AWS Data Pipeline`` orchestrates the flow of data and preparation for use in ``Amazon SageMaker``. 
+*  You can then train an ML model to use the data within ``Amazon SageMaker`` to make real-time predictions based on user activity.
+
+### F.3 Cognitive analytics
+**Cognitive analytics** is the newest form of data analytics. It is providing an incredible opportunity to provide highly specialized recommendations to businesses without any human involvement, past the initial configuration and training of the ML models.
+
+### F.4 Analytic services and velocity
+The first time you push data through a data analytics system, 
+* The data will **flow from ingestion into a staging storage location**. 
+* Data will then **be processed from the staging location and may result in the data being placed in an analytical data store**. 
+* Processing of the data from the staging location may be repeated many times to produce many different analytical results.
+
+#### F.4.1 Batch Analytics
+**Batch analytics** typically involves querying large amounts of **cold data**. Batch analytics are implemented on large data sets to produce a large number of analytical results on a regular schedule. MapReduce-based systems, such as ``Amazon EMR``, are examples of platforms that support batch analytics.
+
+**Note**: Various systems and platforms can be stacked or combined with each other. 
+
+#### F.4.2 Interactive analytics 
+**Interactive analytics** typically involves **running complex queries across complex data sets at high speeds**. This type of analytics is interactive in that it allows a user to query and see results right away. **Batch analytics** are generally run in the background, providing analytics in the form of scheduled report deliveries.
+
+ ``Amazon Athena`` makes it easy to analyze data directly in Amazon S3 and Amazon S3 Glacier using standard SQL queries.
+
+ ``Amazon OpenSearch Service`` allows you to search, explore, filter, aggregate, and visualize your data in near-real time. The service has easy-to-use APIs and real-time analytics capabilities alongside the availability, scalability, and security that production workloads require.
+
+ ``Amazon Redshift`` provides the ability to run complex, analytic queries against petabytes of structured data and includes ``Redshift Spectrum``, which runs SQL queries directly against exabytes of structured or unstructured data in Amazon S3 without the need for unnecessary data movement.
+
+#### F.4.3 Stream analytics
+ **Stream analytics** requires ingesting **a sequence of data and incrementally updating metrics, reports, and summary statistics in response to each arriving data record**. This method is best suited for real-time monitoring and response functions.
+
+ ``Amazon Kinesis`` is a platform for streaming data on AWS, offering powerful services to make it easy to load and analyze streaming data and enables you to build custom streaming data applications for specialized needs. Kinesis offers two services: Amazon Kinesis Data Firehose and Amazon Kinesis Data Streams.
+
+### F.5 Data analysis solutions and AWS services
+ ![Alt text](fig/23.png)
+
+#### F.5.1 Ingest/Collect
+![Alt text](fig/24.png)
+#### F.5.1 Store
+![Alt text](fig/25.png)
+#### F.5.1 Process/Analyze
+![Alt text](fig/26.png)
+#### F.5.1 Consume/Visualize
+![Alt text](fig/27.png)
+
+![Alt text](fig/28.png)
+
+**What were total sales in April?** - Questions relating to past events are answered using **descriptive analytics**.
+
+**What is the year-over-year total sales for the Asia Pacific region?** - Questions **comparing current data sets to past data sets** are answered using **diagnostic analytics.**
+
+**What is the projected growth for smoking-related hospitalizations next year?** - Questions **looking for predictions of future events** are answered using **predictive analytics**.
+
+
+**What products should I buy if I like the Seattle Seahawks?** - Questions **looking for recommendations based on preferences or prior purchase history** are answered using **prescriptive analytics.**
+
+**What is the average number of vehicles spotted by my video doorbell?** - Questions that require **analysis of video, images, and voice** are answered using **cognitive analytics**.
+
+### F.5 Introduction to visualizing data
