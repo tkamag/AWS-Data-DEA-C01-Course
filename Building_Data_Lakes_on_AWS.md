@@ -7,8 +7,9 @@
     - [A.2.2 Data Injection](#a22-data-injection)
       - [A.2.2.1 Transactional Data Ingestion](#a221-transactional-data-ingestion)
       - [A.2.2.2 Files and object ingestion](#a222-files-and-object-ingestion)
-      - [A.2.2.3 STreaming data ingestion](#a223-streaming-data-ingestion)
+      - [A.2.2.3 Streaming data ingestion](#a223-streaming-data-ingestion)
     - [A.2.3 Crawl and catalog data](#a23-crawl-and-catalog-data)
+    - [A.2.3 Data formatting, partitioning, and compression](#a23-data-formatting-partitioning-and-compression)
 ## A.1 Module 1 Introduction to Data Lakes
 ## A.2 Module 2 Data Ingestion, cataloging, and preparation
 
@@ -49,7 +50,7 @@ With ``AWS DMS``,
 * ``Data Sync``: **Online** data transfer service that actually automate, simplify and therefore accelerate  and moving data across storage systems.
 * * ``Amazon AppFlow : Fully manged integration service that allows you to exchange data between ``SaaS`application and  ``AWS services``
 
-#### A.2.2.3 STreaming data ingestion
+#### A.2.2.3 Streaming data ingestion
 ![Alt text](fig/34.png)
 
 ### A.2.3 Crawl and catalog data
@@ -59,6 +60,28 @@ Once we get our data into a ``Data Lake``, the question is **what do we have to 
 
 The ``Glue data crawler`` identify certain characteristics of data itself and uses those characteristics to **build a metadata structure** which is the ``Glue data catalog`` and that data can be sooner or later being ETL into some format for analytic purpose.
 
+> **Note**: The majority of data with is going to be in ``S3`` is **unstructured or semi-structure data**, because if it was **structure data**, we will probably not store it in ``S3``, **we will rather place it in one of the structure repository**  like an ``RDS, Redshift,...`` something like that.
+
+``AWS Glue`` is a **serverless data preparation service –discover, prepare, and combine data for analytics, machine learning, and application development**
+It has a number of components,:
+* ``AWS Glue data catalog``: Build on and contains metadata  that describe and create reference for data that is going to be use as a source of ETL's jobs. Catalog's provides the index to the location of actual data, the schema and tables,  partitions, etc... . **It a collection of tables range in a database.**
+> ``AWS Glue data catalog`` represents the persistent metadata store in your cloud base data lake and every ``AWS account`` have **one and only one** data catalog per region.
+
+> **The crawler started by looking if some existing customs classifiers are aligned with the structure of the data in place and if not he will start by looking to builds-in classifiers.**
+> 
+* ``AWS Glue crawler``
+* ``AWS Glue ETL``
+* ``AWS Glue Studio``
+
+
+### A.2.3 Data formatting, partitioning, and compression
+Best practice is to optimize for:
+* **Formatting**: optimal file storage format
+* **Partitioning**: dividing large datasets into manageable file sizes
+* **Compression**: optimizing file storage size vs. performance
+* **Compaction**: Merging content from multiples smaller files into a larger files.
+
+![Alt text](fig/37.png)
 
 
 
