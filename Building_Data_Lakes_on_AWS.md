@@ -77,6 +77,9 @@ It has a number of components,:
 ### A.2.3 Data formatting, partitioning, and compression
 Best practice is to optimize for:
 * **Formatting**: optimal file storage format
+  * **Row format compared to column format**
+    *  At its most basic, **row stores** are great for **transaction processing and are built to ingest data at very high speeds**. Most relational databases are optimized for row stores.
+    *  **Columnar stores** are built **for highly analytic query models**. They were born out of the need to provide data to queries in seconds. The unique way data is stored within a columnar store provides rapid aggregation of the values and extremely high compression rates. Storing database table information in a columnar fashion reduces the number of disk I/O requests and reduces the amount of data you need to load from disk for typical analytical workloads. 
 * **Partitioning**: dividing large datasets into manageable file sizes
 * **Compression**: optimizing file storage size vs. performance
 * **Compaction**: Merging content from multiples smaller files into a larger files.
