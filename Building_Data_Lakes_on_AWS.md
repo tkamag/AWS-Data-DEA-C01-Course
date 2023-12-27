@@ -9,7 +9,10 @@
       - [A.2.2.2 Files and object ingestion](#a222-files-and-object-ingestion)
       - [A.2.2.3 Streaming data ingestion](#a223-streaming-data-ingestion)
     - [A.2.3 Crawl and catalog data](#a23-crawl-and-catalog-data)
-    - [A.2.3 Data formatting, partitioning, and compression](#a23-data-formatting-partitioning-and-compression)
+    - [A.2.4 Data formatting, partitioning, and compression](#a24-data-formatting-partitioning-and-compression)
+    - [A.2.5 Securing data lake storage](#a25-securing-data-lake-storage)
+    - [A.2.6 Query data with Amazon Athena](#a26-query-data-with-amazon-athena)
+    - [A.2.6 Athena Federated Query](#a26-athena-federated-query)
 ## A.1 Module 1 Introduction to Data Lakes
 ## A.2 Module 2 Data Ingestion, cataloging, and preparation
 
@@ -74,17 +77,46 @@ It has a number of components,:
 * ``AWS Glue Studio``
 
 
-### A.2.3 Data formatting, partitioning, and compression
+### A.2.4 Data formatting, partitioning, and compression
 Best practice is to optimize for:
 * **Formatting**: optimal file storage format
   * **Row format compared to column format**
     *  At its most basic, **row stores** are great for **transaction processing and are built to ingest data at very high speeds**. Most relational databases are optimized for row stores.
     *  **Columnar stores** are built **for highly analytic query models**. They were born out of the need to provide data to queries in seconds. The unique way data is stored within a columnar store provides rapid aggregation of the values and extremely high compression rates. Storing database table information in a columnar fashion reduces the number of disk I/O requests and reduces the amount of data you need to load from disk for typical analytical workloads. 
+       *  >  **Apache Parquet and ORC Columnar** storage formats optimized for fast retrieval of data.
 * **Partitioning**: dividing large datasets into manageable file sizes
 * **Compression**: optimizing file storage size vs. performance
+  * **Benefits**
+    * Reduced storage requirements 
+    * Reduced I/O reading data from storage
+    * Faster query processing
+  * **Compression codecs for AWS Glue output**
+    * SNAPPY (default)
+    * LZO
+    * GZIP
+    * UNCOMPRESSED
 * **Compaction**: Merging content from multiples smaller files into a larger files.
 
 ![Alt text](fig/37.png)
+
+### A.2.5 Securing data lake storage
+![**Alt text**](fig/38.png)
+
+### A.2.6 Query data with Amazon Athena
+![**Alt text**](fig/39.png)
+``Amazon Athena`` is an interactive query service **that makes it easy to analyze data in Amazon S3 using standard SQL**. Athena is serverless, so there is no infrastructure to set up or manage.
+
+### A.2.6 Athena Federated Query
+![**Alt text**](fig/40.png)
+``Athena Federated Query`` has a connector to:
+* ``Amazon S3``
+* ``Amazon ElastiCache for Redis``
+* ``Amazon DocumentDB``
+* ``Amazon Redshift``
+* ``Amazon DynamoDB``
+* ``HBase in Amazon EMR``
+* ``On Premises`` data stores.
+
 
 
 
