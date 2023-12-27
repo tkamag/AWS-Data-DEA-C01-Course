@@ -105,6 +105,7 @@ Best practice is to optimize for:
 ### A.2.6 Query data with Amazon Athena
 ![**Alt text**](fig/39.png)
 
+
 ``Amazon Athena`` is an interactive query service **that makes it easy to analyze data in Amazon S3 using standard SQL**. Athena is serverless, so there is no infrastructure to set up or manage.
 
 ### A.2.6 Athena Federated Query
