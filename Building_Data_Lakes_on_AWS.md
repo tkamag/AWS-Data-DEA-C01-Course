@@ -13,6 +13,9 @@
     - [A.2.5 Securing data lake storage](#a25-securing-data-lake-storage)
     - [A.2.6 Query data with Amazon Athena](#a26-query-data-with-amazon-athena)
     - [A.2.6 Athena Federated Query](#a26-athena-federated-query)
+  - [A.3 Module 3: Building a data lake with AWS Lake Formation](#a3-module-3-building-a-data-lake-with-aws-lake-formation)
+    - [A.3.1 Topic A AWS Lake Formation overview](#a31-topic-a-aws-lake-formation-overview)
+    - [A.3.2 Topic B AWS Lake Formation basic permission model](#a32-topic-b-aws-lake-formation-basic-permission-model)
 ## A.1 Module 1 Introduction to Data Lakes
 ## A.2 Module 2 Data Ingestion, cataloging, and preparation
 
@@ -118,6 +121,33 @@ Best practice is to optimize for:
 * ``Amazon DynamoDB``
 * ``HBase in Amazon EMR``
 * ``On Premises`` data stores.
+
+## A.3 Module 3: Building a data lake with AWS Lake Formation
+### A.3.1 Topic A AWS Lake Formation overview
+Lake Formation is a completely managed service.
+* ``AWS Lake Formation`` is an automated build environment based on AWS Glue.
+* ``Lake Formation`` coordinates AWS Glue crawlers to identify raw and processed datasets. It persistently stores metadata for each dataset in the AWS Glue Data Catalog within the data lake.
+* ``AWS Glue jobs`` use Extract, Transform, and Load, or ETL, scripts that connect to source data, process it, and write it out to a target. AWS Glue triggers can start jobs based on a schedule or event, or on demand
+* ``AWS Glue workflows`` orchestrates ETL jobs, crawlers, and triggers. You can define a workflow manually or use a Lake Formation blueprint to simplify ingestion and processing of commonly ingested data source types.
+* ``Lake Formation`` provides centralized access controls for your data lake, including security policy-based rules for users and applications by role. Lake Formation uses a combination of AWS Identity and Access Management (IAM) and Lake Formation access controls to enforce table-, column-, and row-level granularity.
+* ``Lake Formation`` uses the encryption capabilities of Amazon Simple Storage Service (Amazon S3) for data in the data lake, including automatic server-side encryption with keys managed by the AWS Key Management Service (AWS KMS).
+  
+Three stages of Lake Formation:
+* **Register data lake storage locations**
+* **Create a database in the data lake’s Data Catalog**
+* **Grant permissions to data lake resources**
+
+### A.3.2 Topic B AWS Lake Formation basic permission model
+A data lake solution needs to address the following:
+* Unifying permissions across the data lake stack.
+  * **Data access permissions** authorize principals to read and write data to underlying
+Amazon S3 locations.
+  * **Data location permissions** authorize principals to create metadata databases and
+tables that point to specific Amazon S3 locations.
+* Enforcing fine grained permissions to restrict access
+* Ensuring data access complies with regulations
+
+![Alt text](fig/41.png
 
 
 
