@@ -16,6 +16,9 @@
   - [A.3 Module 3: Building a data lake with AWS Lake Formation](#a3-module-3-building-a-data-lake-with-aws-lake-formation)
     - [A.3.1 Topic A AWS Lake Formation overview](#a31-topic-a-aws-lake-formation-overview)
     - [A.3.2 Topic B AWS Lake Formation basic permission model](#a32-topic-b-aws-lake-formation-basic-permission-model)
+      - [A.3.2.1 Data lake access control](#a321-data-lake-access-control)
+  - [A.5 Module 4: Data processing and analytics](#a5-module-4-data-processing-and-analytics)
+    - [A.5.1 Topic A Data transformation](#a51-topic-a-data-transformation)
 ## A.1 Module 1 Introduction to Data Lakes
 ## A.2 Module 2 Data Ingestion, cataloging, and preparation
 
@@ -147,7 +150,19 @@ tables that point to specific Amazon S3 locations.
 * Enforcing fine grained permissions to restrict access
 * Ensuring data access complies with regulations
 
-![Alt text](fig/41.png
+![Alt text](fig/41.png)
+
+#### A.3.2.1 Data lake access control
+
+![Alt text](fig/42.png)
+
+## A.5 Module 4: Data processing and analytics
+### A.5.1 Topic A Data transformation
+
+![Alt text](fig/43.png)
+
+The key takeaway from this architecture diagram is that a **data lake will have a set of extract, transform, and load (ETL) jobs that transform data from one or more dataset sources and update other dataset targets**. In addition, crawlers work to keep the data catalog synchronized with the underlying datasets. This module will look at the various use cases and data
+
 
 
 
