@@ -38,8 +38,8 @@ To optimize the **storage costs**:
 
 
 <figure>
-  <img src="./fig/29.png" alt=".." title="Optional title" width="52%" height="70%"/>
-  <img src="./fig/30.png" alt=".." title="Optional title" width="47%" height="70%"/>
+  <img src="./fig/29.png" alt=".." title="Optional title" width="51%" height="70%"/>
+  <img src="./fig/30.png" alt=".." title="Optional title" width="46%" height="70%"/>
 </figure>
 
 
