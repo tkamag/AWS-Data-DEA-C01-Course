@@ -35,13 +35,10 @@ To optimize the **storage costs**:
 * You can also use **lifecycle management** or integrated **storage class analysis**.
 * Transform data into **columnar, compressed and files formats**
   
-
-
 <figure>
   <img src="./fig/29.png" alt=".." title="Optional title" width="51%" height="70%"/>
   <img src="./fig/30.png" alt=".." title="Optional title" width="46%" height="70%"/>
 </figure>
-
 
 ### A.2.2 Data Injection
 Data Ingestion services are multiples and include:
@@ -211,9 +208,9 @@ From a blueprint, you can create a **workflow** . **Workflows** consist of ``AWS
 A **workflow** is a **container for a set of related** ``AWS Glue`` jobs, crawlers, and triggers. You create the workflow in ``Lake Formation`` by selecting a blueprint. ``Lake Formation`` can track the status of a workflow as a single entity.**
 
 **Creating a workflow**
-* Choose blueprint type:
-* Configure source and target:
-* Configure the workflow:
+  1. Choose **blueprint type**:
+  2. **Configure source and target**:
+  3. **Configure the workflow**:
 
 ### A.6.2 Topic B Fine grained access control
 There are two distinct methods for granting Lake Formation permissions on Data Catalog resources:
