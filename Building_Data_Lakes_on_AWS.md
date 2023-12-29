@@ -37,9 +37,14 @@ To optimize the **storage costs**:
   
 
 
-![Alt text](fig/29.png)
+<figure>
+  <img src="./fig/29.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
 
-![Alt text](fig/30.png)
+<figure>
+  <img src="./fig/30.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
 ### A.2.2 Data Injection
 Data Ingestion services are multiples and include:
 * **DMS** with ``AWS DMS``
@@ -48,7 +53,9 @@ Data Ingestion services are multiples and include:
 * ...
 
 
-![Alt text](fig/31_.png)
+<figure>
+  <img src="./fig/31.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
 
 If data are coming from **transactional source** like a database, **the most likely response** in term of ingestion, would be ``AWS DMS``.
 
@@ -56,19 +63,29 @@ With ``AWS DMS``,
 * No downtime, **database still accessible during the time of migration**( one of multiple raison that we need to separate storage to compute)
   
 #### A.2.2.1 Transactional Data Ingestion
-![Alt text](fig/32.png)
+<figure>
+  <img src="./fig/32.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
 #### A.2.2.2 Files and object ingestion
-![Alt text](fig/33.png)
+<figure>
+  <img src="./fig/33.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
 * ``Storage Gateway``
 * ``Direct Connect``
 * ``Data Sync``: **Online** data transfer service that actually automate, simplify and therefore accelerate  and moving data across storage systems.
 * * ``Amazon AppFlow : Fully manged integration service that allows you to exchange data between ``SaaS`application and  ``AWS services``
 
 #### A.2.2.3 Streaming data ingestion
-![Alt text](fig/34.png)
+<figure>
+  <img src="./fig/34.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
 
 ### A.2.3 Crawl and catalog data
-![Alt text](fig/36.png)
+<figure>
+  <img src="./fig/36.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
 
 Once we get our data into a ``Data Lake``, the question is **what do we have to do with then**? The next step would be the creation and maintenance of the ``Glue data catalog``starting by configuring the ``Glue data crawler``.
 
@@ -108,13 +125,19 @@ Best practice is to optimize for:
     * UNCOMPRESSED
 * **Compaction**: Merging content from multiples smaller files into a larger files.
 
-![Alt text](fig/37.png)
+<figure>
+  <img src="./fig/37.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
 
 ### A.2.5 Securing data lake storage
-![**Alt text**](fig/38.png)
+<figure>
+  <img src="./fig/38.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
 
 ### A.2.6 Query data with Amazon Athena
-![**Alt text**](fig/39.png)
+<figure>
+  <img src="./fig/39.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
 
 
 ``Amazon Athena`` is an interactive query service **that makes it easy to analyze data in Amazon S3 using standard SQL**. Athena is serverless, so there is no infrastructure to set up or manage.
