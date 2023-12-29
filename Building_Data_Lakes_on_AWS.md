@@ -19,6 +19,11 @@
       - [A.3.2.1 Data lake access control](#a321-data-lake-access-control)
   - [A.5 Module 4: Data processing and analytics](#a5-module-4-data-processing-and-analytics)
     - [A.5.1 Topic A Data transformation](#a51-topic-a-data-transformation)
+    - [A.5.2 Topic B Data processing with AWS Glue](#a52-topic-b-data-processing-with-aws-glue)
+    - [A.5.3 Topic C AWS Glue jobs and workflows](#a53-topic-c-aws-glue-jobs-and-workflows)
+  - [A.6 Module 5 Module 5: AWS Lake Formation Additional Configurations](#a6-module-5-module-5-aws-lake-formation-additional-configurations)
+    - [A.6.1 Topîc A Using blueprints and workflows](#a61-topîc-a-using-blueprints-and-workflows)
+    - [A.6.2 Topic B Fine grained access control](#a62-topic-b-fine-grained-access-control)
 ## A.1 Module 1 Introduction to Data Lakes
 ## A.2 Module 2 Data Ingestion, cataloging, and preparation
 
@@ -150,22 +155,52 @@ tables that point to specific Amazon S3 locations.
 * Enforcing fine grained permissions to restrict access
 * Ensuring data access complies with regulations
 
-![Alt text](fig/41.png)
+<figure>
+  <img src="./fig/41.png" alt=".." title="Optional title" width="70%" height="70%"/>
+</figure>
 
 #### A.3.2.1 Data lake access control
 
-![Alt text](fig/42.png)
+<figure>
+  <img src="./fig/42.png" alt=".." title="Optional title" width="70%" height="70%"/>
+</figure>
 
 ## A.5 Module 4: Data processing and analytics
 ### A.5.1 Topic A Data transformation
 
-![Alt text](fig/43.png)
+<figure>
+  <img src="./fig/43.png" alt=".." title="Optional title" width="70%" height="70%"/>
+</figure>
 
 The key takeaway from this architecture diagram is that a **data lake will have a set of extract, transform, and load (ETL) jobs that transform data from one or more dataset sources and update other dataset targets**. In addition, crawlers work to keep the data catalog synchronized with the underlying datasets. This module will look at the various use cases and data
 
+### A.5.2 Topic B Data processing with AWS Glue
+``AWS Glue`` is a serverless data integration service – Discover, prepare, and combine data for analytics, machine learning, and application development.
 
+### A.5.3 Topic C AWS Glue jobs and workflows
+## A.6 Module 5 Module 5: AWS Lake Formation Additional Configurations
+### A.6.1 Topîc A Using blueprints and workflows 
+A **blueprint** is a data management template **where you can ingest data into a data**. ``Lake Formation`` provides several blueprints, each for a predefined source type, such as a relational database or AWS CloudTrail logs. 
 
+From a blueprint, you can create a **workflow** . **Workflows** consist of ``AWS Glue`` crawlers, jobs, and triggers that are generated to orchestrate the loading and updating of data. **Blueprints** take the data source, data target, and schedule as input to configure the workflow.
 
+A **workflow** is a **container for a set of related** ``AWS Glue`` jobs, crawlers, and triggers. You create the workflow in ``Lake Formation`` by selecting a blueprint. ``Lake Formation`` can track the status of a workflow as a single entity.**
+
+**Creating a workflow**
+* Choose blueprint type:
+* Configure source and target:
+* Configure the workflow:
+
+### A.6.2 Topic B Fine grained access control
+There are two distinct methods for granting Lake Formation permissions on Data Catalog resources:
+* **Named resource access control**. With this method, **you grant permissions on specific databases or tables by specifying database or table names**. The grants have this form: 
+>>> **Grant permissions to principals on resource**s (with grant option). 
+
+With the grant option, **you can allow the grantee to grant the permissions to other principals**.
+* **Tag based access control**, or TBAC With this method, **you assign one or more LF Tags to Data Catalog, databases, tables, and columns, and you grant permissions on one or more LF Tags to principals**. 
+* >>> **Each LF Tag is a key value pair, such as department=sales**. 
+  
+A principal that has LF Tags that match the LF Tags on a Data Catalog resource can access that resource. This method is recommended for data lakes with a large number of databases and tables, and we cover that later in this topic.
 
 
 
