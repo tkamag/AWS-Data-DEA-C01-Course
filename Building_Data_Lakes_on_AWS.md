@@ -38,12 +38,10 @@ To optimize the **storage costs**:
 
 
 <figure>
-  <img src="./fig/29.png" alt=".." title="Optional title" width="55%" height="70%"/>
+  <img src="./fig/29.png" alt=".." title="Optional title" width="52%" height="70%"/>
+  <img src="./fig/30.png" alt=".." title="Optional title" width="47%" height="70%"/>
 </figure>
 
-<figure>
-  <img src="./fig/30.png" alt=".." title="Optional title" width="55%" height="70%"/>
-</figure>
 
 ### A.2.2 Data Injection
 Data Ingestion services are multiples and include:
