@@ -121,7 +121,7 @@ Best practice is to optimize for:
 
 ### A.2.6 Athena Federated Query
 <figure>
-  <img src="./fig/40.png" alt=".." title="Optional title" width="70%" height="70%"/>
+  <img src="./fig/40.png" alt=".." title="Optional title" width="60%" height="70%"/>
 </figure>
 
 ``Athena Federated Query`` has a connector to:
@@ -159,20 +159,20 @@ tables that point to specific Amazon S3 locations.
 * Ensuring data access complies with regulations
 
 <figure>
-  <img src="./fig/41.png" alt=".." title="Optional title" width="70%" height="70%"/>
+  <img src="./fig/41.png" alt=".." title="Optional title" width="60%" height="70%"/>
 </figure>
 
 #### A.3.2.1 Data lake access control
 
 <figure>
-  <img src="./fig/42.png" alt=".." title="Optional title" width="70%" height="70%"/>
+  <img src="./fig/42.png" alt=".." title="Optional title" width="60%" height="70%"/>
 </figure>
 
 ## A.5 Module 4: Data processing and analytics
 ### A.5.1 Topic A Data transformation
 
 <figure>
-  <img src="./fig/43.png" alt=".." title="Optional title" width="60%" height="70%"/>
+  <img src="./fig/43.png" alt=".." title="Optional title" width="55%" height="70%"/>
 </figure>
 
 The key takeaway from this architecture diagram is that a **data lake will have a set of extract, transform, and load (ETL) jobs that transform data from one or more dataset sources and update other dataset targets**. In addition, crawlers work to keep the data catalog synchronized with the underlying datasets. This module will look at the various use cases and data
