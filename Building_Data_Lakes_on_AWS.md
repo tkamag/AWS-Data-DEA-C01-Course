@@ -120,7 +120,10 @@ Best practice is to optimize for:
 ``Amazon Athena`` is an interactive query service **that makes it easy to analyze data in Amazon S3 using standard SQL**. Athena is serverless, so there is no infrastructure to set up or manage.
 
 ### A.2.6 Athena Federated Query
-![**Alt text**](fig/40.png)
+<figure>
+  <img src="./fig/40.png" alt=".." title="Optional title" width="70%" height="70%"/>
+</figure>
+
 ``Athena Federated Query`` has a connector to:
 * ``Amazon S3``
 * ``Amazon ElastiCache for Redis``
@@ -169,7 +172,7 @@ tables that point to specific Amazon S3 locations.
 ### A.5.1 Topic A Data transformation
 
 <figure>
-  <img src="./fig/43.png" alt=".." title="Optional title" width="70%" height="70%"/>
+  <img src="./fig/43.png" alt=".." title="Optional title" width="60%" height="70%"/>
 </figure>
 
 The key takeaway from this architecture diagram is that a **data lake will have a set of extract, transform, and load (ETL) jobs that transform data from one or more dataset sources and update other dataset targets**. In addition, crawlers work to keep the data catalog synchronized with the underlying datasets. This module will look at the various use cases and data
