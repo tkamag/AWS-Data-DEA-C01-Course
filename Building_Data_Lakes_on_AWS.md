@@ -256,6 +256,19 @@ With the grant option, **you can allow the grantee to grant the permissions to o
 A principal that has LF Tags that match the LF Tags on a Data Catalog resource can access that resource. This method is recommended for data lakes with a large number of databases and tables, and we cover that later in this topic.
 
 > ** For the new AWS creation Data lake, the recommended approach would be to use  both ``Lake formation and IAM permissions``.
+>
+> ** The first thing to do when logging to ``AWS Lake Formation`` is to create an **Administrator**.  
+> 
+After creating **Administrators**, you can then:
+* Managed **Administrators**
+* Managed **LF-Tags**
+* Managed **LF-Tag permissions**
+  
+
+  With ``Blueprint``, **you can instantiate a lake formation workflow that then perform jobs and task for typical proposes  as pre-defined**. ``Lake formation workflows`` generate ``AWS Glue crawlers, Glue jobs, Glue triggers`` in order to **orchestrate, loading and updating data**
+  > **Workflows create on ``Lake Formation`` are visible on ``AWS Glue`` console and the node of that workflows is either a job, a crawler or a trigger.
+
+> **Creating workflow in ``Lake Formation`` is much more user friendly  than creating a workflow on ``AWS Glue``**  
 
 
 
