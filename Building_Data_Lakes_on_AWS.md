@@ -21,7 +21,7 @@
     - [A.5.1 Topic A Data transformation](#a51-topic-a-data-transformation)
     - [A.5.2 Topic B Data processing with AWS Glue](#a52-topic-b-data-processing-with-aws-glue)
     - [A.5.3 Topic C AWS Glue jobs and workflows](#a53-topic-c-aws-glue-jobs-and-workflows)
-  - [A.6 Module 5 Module 5: AWS Lake Formation Additional Configurations](#a6-module-5-module-5-aws-lake-formation-additional-configurations)
+  - [A.6 Module 5: AWS Lake Formation Additional Configurations](#a6-module-5-aws-lake-formation-additional-configurations)
     - [A.6.1 Topîc A Using blueprints and workflows](#a61-topîc-a-using-blueprints-and-workflows)
     - [A.6.2 Topic B Fine grained access control](#a62-topic-b-fine-grained-access-control)
 ## A.1 Module 1 Introduction to Data Lakes
@@ -198,8 +198,40 @@ The key takeaway from this architecture diagram is that a **data lake will have 
 ### A.5.2 Topic B Data processing with AWS Glue
 ``AWS Glue`` is a serverless data integration service – Discover, prepare, and combine data for analytics, machine learning, and application development.
 
+You have two options for developing AWS Glue scripts:
+• Use a ``Python shell`` script that ``AWS Glue`` runs in a non distributed environment.
+• Use a ``PySpark`` or ``Scala`` script that ``AWS Glue`` runs using ``Apache Spark`` in a distributed environment.
+
+1. ``AWS Glue Studio`` is designed for both **tabular data and for semi structured data**, which is difficult to render in spreadsheet like data preparation interfaces. Examples of semi structured data.
+2. You can **quickly prepare the data for analysis in data warehouses and
+data lakes**. 
+3. ``AWS Glue Studio`` also **provides tools to monitor ETL workflows and validate that they
+are operating as intended**.
+
+``AWS Glue Studio`` provides a visual interface for the following tasks:
+1. Pulling data from an ``Amazon S3, Kinesis, or Java Database Connectivity (JDBC)`` source
+2. Configuring a transformation that joins, samples, or transforms the data 
+3. Specifying a target location for the transformed data
+4. Running, monitoring, and managing the jobs created in ``AWS Glue Studio``.
+5. **You can also build out your job script interactively within a Jupyter notebook running
+on a Spark (PySpark) runtime**.
+
 ### A.5.3 Topic C AWS Glue jobs and workflows
-## A.6 Module 5 Module 5: AWS Lake Formation Additional Configurations
+<figure>
+  <img src="./fig/44.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
+Job triggers:
+
+1. **Schedule** – based on time of the day
+2. **Job event** – based on **succeeded, failed, stopped, and other statuses**
+3. **On-demand** – use ``AWS Lambda`` to start jobs on events such as ``Amazon S3`` notifications
+4. **Control conditions** –all or any
+5. **Retries or Timeout**
+
+>> ``Auto Scaling`` **is available for AWS Spark and PySpark jobs (both AWS Glue ETL and Streaming) with AWS Glue version 3.0 or later**.
+
+## A.6 Module 5: AWS Lake Formation Additional Configurations
 ### A.6.1 Topîc A Using blueprints and workflows 
 A **blueprint** is a data management template **where you can ingest data into a data**. ``Lake Formation`` provides several blueprints, each for a predefined source type, such as a relational database or AWS CloudTrail logs. 
 
@@ -223,6 +255,7 @@ With the grant option, **you can allow the grantee to grant the permissions to o
   
 A principal that has LF Tags that match the LF Tags on a Data Catalog resource can access that resource. This method is recommended for data lakes with a large number of databases and tables, and we cover that later in this topic.
 
+> ** For the new AWS creation Data lake, the recommended approach would be to use  both ``Lake formation and IAM permissions``.
 
 
 
