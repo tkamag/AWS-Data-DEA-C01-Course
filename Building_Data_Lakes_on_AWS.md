@@ -233,6 +233,10 @@ Job triggers:
 
 ## A.6 Module 5: AWS Lake Formation Additional Configurations
 ### A.6.1 Topîc A Using blueprints and workflows 
+<figure>
+  <img src="./fig/45.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
 A **blueprint** is a data management template **where you can ingest data into a data**. ``Lake Formation`` provides several blueprints, each for a predefined source type, such as a relational database or AWS CloudTrail logs. 
 
 From a blueprint, you can create a **workflow** . **Workflows** consist of ``AWS Glue`` crawlers, jobs, and triggers that are generated to orchestrate the loading and updating of data. **Blueprints** take the data source, data target, and schedule as input to configure the workflow.
@@ -277,9 +281,6 @@ After creating **Administrators**, you can then:
 
 > **Creating workflow in ``Lake Formation`` is much more user friendly  than creating a workflow on** ``AWS Glue`` as **DAG**.
 >
-<figure>
-  <img src="./fig/45.png" alt=".." title="Optional title" width="55%" height="70%"/>
-</figure>
 
 
 
