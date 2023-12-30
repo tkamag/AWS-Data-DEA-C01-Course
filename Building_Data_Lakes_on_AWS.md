@@ -260,6 +260,14 @@ There are two distinct methods for granting Lake Formation permissions on Data C
 * **Named resource access control (NRAC)**. With this method, **you grant permissions on specific databases or tables by specifying database or table names**. The grants have this form: 
 >>> **Grant permissions to principals on resource**s (with grant option). 
 
+```Lake Formation Tags`` are similar in structure to ``IAM tags`` that are part of the ``IAM`` attribute based access control. The **idea is to define a set of tags (attributes) and corresponding values and then assign specific sets of tag values to resources**. 
+
+* ``LF Tags`` are ``Lake Formation Tags`` defined within a ``Lake Formation data lake``. Tags are <key, value> pairs.
+* ``LF Tags`` **can be assigned to Data Catalog resources: database, tables, and column**.
+  * **Catalog resources are hierarchical** (a database contains tables that contain columns). LF Tags assigned to a resource are also assigned (with inheritance) to contained resources. 
+  * A different value for a particular ``LF Tag`` assigned to a lower level resource overrides the inherited value.
+* You can create policies on ``LF Tags`` assigning them to principals.
+
 With the grant option, **you can allow the grantee to grant the permissions to other principals**.
 * **Tag based access control**, or (TBAC) With this method, **you assign one or more LF Tags to Data Catalog, databases, tables, and columns, and you grant permissions on one or more LF Tags to principals**. 
 * >>> **Each LF Tag is a key value pair, such as department=sales**. 
@@ -276,7 +284,8 @@ After creating **Administrators**, you can then:
 * Managed **LF-Tag permissions**
   
 
-  With ``Blueprint``, **you can instantiate a lake formation workflow that then perform jobs and task for typical proposes  as pre-defined**. ``Lake formation workflows`` generate ``AWS Glue crawlers, Glue jobs, Glue triggers`` in order to **orchestrate, loading and updating data**
+With ``Blueprint``, **you can instantiate a lake formation workflow that then perform jobs and task for typical proposes  as pre-defined**. ``Lake formation workflows`` generate ``AWS Glue crawlers, Glue jobs, Glue triggers`` in order to **orchestrate, loading and updating data**.
+
   > **Workflows create on ``Lake Formation`` are visible on ``AWS Glue`` console and the node of that workflows is either a job, a crawler or a trigge**r.
 
 > **Creating workflow in ``Lake Formation`` is much more user friendly  than creating a workflow on** ``AWS Glue`` as **DAG**.
