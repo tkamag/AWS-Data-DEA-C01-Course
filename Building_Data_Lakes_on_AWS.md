@@ -245,12 +245,19 @@ A **workflow** is a **container for a set of related** ``AWS Glue`` jobs, crawle
   3. **Configure the workflow**:
 
 ### A.6.2 Topic B Fine grained access control
+* ``Lake Formation permissions`` **control access to Data Catalog resources, Amazon Simple Storage Service (Amazon S3) locations, and the underlying data at those locations**.
+* ``IAM permissions`` **control access to the Lake Formation and AWS Glue APIs and resources**.
+
+> For **read/write access to underlying data (in Amazon S3)**, in addition to ``Lake Formation`` permissions, **principals also need the IAM permission** ``lakeformation:GetDataAccess``.
+
+> With this permission, ``Lake Formation`` **grants the request for temporary credentials to access the data**.
+
 There are two distinct methods for granting Lake Formation permissions on Data Catalog resources:
-* **Named resource access control**. With this method, **you grant permissions on specific databases or tables by specifying database or table names**. The grants have this form: 
+* **Named resource access control (NRAC)**. With this method, **you grant permissions on specific databases or tables by specifying database or table names**. The grants have this form: 
 >>> **Grant permissions to principals on resource**s (with grant option). 
 
 With the grant option, **you can allow the grantee to grant the permissions to other principals**.
-* **Tag based access control**, or TBAC With this method, **you assign one or more LF Tags to Data Catalog, databases, tables, and columns, and you grant permissions on one or more LF Tags to principals**. 
+* **Tag based access control**, or (TBAC) With this method, **you assign one or more LF Tags to Data Catalog, databases, tables, and columns, and you grant permissions on one or more LF Tags to principals**. 
 * >>> **Each LF Tag is a key value pair, such as department=sales**. 
   
 A principal that has LF Tags that match the LF Tags on a Data Catalog resource can access that resource. This method is recommended for data lakes with a large number of databases and tables, and we cover that later in this topic.
@@ -268,7 +275,11 @@ After creating **Administrators**, you can then:
   With ``Blueprint``, **you can instantiate a lake formation workflow that then perform jobs and task for typical proposes  as pre-defined**. ``Lake formation workflows`` generate ``AWS Glue crawlers, Glue jobs, Glue triggers`` in order to **orchestrate, loading and updating data**
   > **Workflows create on ``Lake Formation`` are visible on ``AWS Glue`` console and the node of that workflows is either a job, a crawler or a trigger.
 
-> **Creating workflow in ``Lake Formation`` is much more user friendly  than creating a workflow on ``AWS Glue``**  
+> **Creating workflow in ``Lake Formation`` is much more user friendly  than creating a workflow on ``AWS Glue`` as **DAG**.
+>
+<figure>
+  <img src="./fig/45.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
 
 
 
