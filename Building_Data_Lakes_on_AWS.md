@@ -275,7 +275,7 @@ After creating **Administrators**, you can then:
   With ``Blueprint``, **you can instantiate a lake formation workflow that then perform jobs and task for typical proposes  as pre-defined**. ``Lake formation workflows`` generate ``AWS Glue crawlers, Glue jobs, Glue triggers`` in order to **orchestrate, loading and updating data**
   > **Workflows create on ``Lake Formation`` are visible on ``AWS Glue`` console and the node of that workflows is either a job, a crawler or a trigge**r.
 
-> **Creating workflow in ``Lake Formation`` is much more user friendly  than creating a workflow on ``AWS Glue`` as **DAG**.
+> **Creating workflow in ``Lake Formation`` is much more user friendly  than creating a workflow on** ``AWS Glue`` as **DAG**.
 >
 <figure>
   <img src="./fig/45.png" alt=".." title="Optional title" width="55%" height="70%"/>
