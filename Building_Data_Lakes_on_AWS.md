@@ -372,6 +372,7 @@ Key AWS Service
 AWS is committed to providing great performance at a low cost across all analytics services.
 
 A ``data mesh`` is **an architectural framework that solves advanced data security challenges through distributed, decentralized ownership**. Organizations have multiple data sources from different lines of business that must be integrated for analytics. 
+
 > A ``data mesh`` **architecture effectively unites the disparate data sources and links them together through centrally managed data sharing and governance guidelines**. 
 
 Business functions can maintain control over how shared data is accessed, who accesses it, and in what formats it’s accessed. A ``data mesh`` adds complexities to architecture but also brings efficiency by improving data access, security, and scalability.
