@@ -24,6 +24,8 @@
   - [A.6 Module 5: AWS Lake Formation Additional Configurations](#a6-module-5-aws-lake-formation-additional-configurations)
     - [A.6.1 Topîc A Using blueprints and workflows](#a61-topîc-a-using-blueprints-and-workflows)
     - [A.6.2 Topic B Fine grained access control](#a62-topic-b-fine-grained-access-control)
+    - [A.6.3 Topic C Lake Formation Governed Tables](#a63-topic-c-lake-formation-governed-tables)
+    - [A.6.4 Topic D Visualizing data with QuickSight](#a64-topic-d-visualizing-data-with-quicksight)
 ## A.1 Module 1 Introduction to Data Lakes
 ## A.2 Module 2 Data Ingestion, cataloging, and preparation
 
@@ -285,11 +287,22 @@ After creating **Administrators**, you can then:
   
 
 With ``Blueprint``, **you can instantiate a lake formation workflow that then perform jobs and task for typical proposes  as pre-defined**. ``Lake formation workflows`` generate ``AWS Glue crawlers, Glue jobs, Glue triggers`` in order to **orchestrate, loading and updating data**.
-
+****
   > **Workflows create on ``Lake Formation`` are visible on ``AWS Glue`` console and the node of that workflows is either a job, a crawler or a trigge**r.
 
 > **Creating workflow in ``Lake Formation`` is much more user friendly  than creating a workflow on** ``AWS Glue`` as **DAG**.
 >
+### A.6.3 Topic C Lake Formation Governed Tables
+When creating tables in ``Lake Formation`` filling in the Create table form, **turn on Enable governed data access and management under the data management and security section**.
+These are notable restrictions:
+* Currently, **only Athena, Amazon Redshift Spectrum, and AWS Glue ETL scripts* support querying Governed Tables. Athena queries are limited to read only.
+* To create a governed table with the AWS Management Console, **you must use the Lake Formation console* . You can't use the AWS Glue console.
+* **Only partitioned tables with Parquet formatted files are supported for data compaction**.
+* ``AWS Glue crawlers`` don't support Governed Tables.
+* You can't use ``Apache Spark DataFrames`` to read from and write to Governed Tables.
+* Push down predicates aren't supported in ``AWS Glue ETL`` 
+
+### A.6.4 Topic D Visualizing data with QuickSight
 
 
 
