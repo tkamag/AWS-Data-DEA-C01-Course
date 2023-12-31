@@ -402,11 +402,11 @@ Note:
 * [Use an event-driven architecture to build a data mesh on AWS](https://aws.amazon.com/blogs/big-data/use-an-event-driven-architecture-to-build-a-data-mesh-on-aws/)
 
 #### A.8.1 Support for advanced data architectures
-* ``AWS database and analytics services``
-* ``AWS data`` movement and transformation services
-* ``Lake Formation`` fine grained access control, tags, and TBAC
-* ``Cross account links``
-* ``Lake Formation governed tables``
+1.  ``AWS database and analytics services``
+2.  ``AWS data`` movement and transformation services
+3.  ``Lake Formation`` fine grained access control, tags, and TBAC
+4.  ``Cross account links``
+5. ``Lake Formation governed tables``
 
 
 
