@@ -26,6 +26,15 @@
     - [A.6.2 Topic B Fine grained access control](#a62-topic-b-fine-grained-access-control)
     - [A.6.3 Topic C Lake Formation Governed Tables](#a63-topic-c-lake-formation-governed-tables)
     - [A.6.4 Topic D Visualizing data with QuickSight](#a64-topic-d-visualizing-data-with-quicksight)
+  - [A.7 Module 6: Modern data architecture](#a7-module-6-modern-data-architecture)
+    - [A.7.1 Topic A Modern data architecture](#a71-topic-a-modern-data-architecture)
+      - [A.7.1.1 Scalable data lakes](#a711-scalable-data-lakes)
+      - [A.7.1.2 Purpose built analytics services](#a712-purpose-built-analytics-services)
+      - [A.7.1.3 Unified data access](#a713-unified-data-access)
+      - [A.7.1.4 Unified governance](#a714-unified-governance)
+      - [A.7.1.5 Performant and cost effective](#a715-performant-and-cost-effective)
+    - [A.8 Topic B Data movement scenarios](#a8-topic-b-data-movement-scenarios)
+      - [A.8.1 Support for advanced data architectures](#a81-support-for-advanced-data-architectures)
 ## A.1 Module 1 Introduction to Data Lakes
 ## A.2 Module 2 Data Ingestion, cataloging, and preparation
 
@@ -303,6 +312,99 @@ These are notable restrictions:
 * Push down predicates aren't supported in ``AWS Glue ETL`` 
 
 ### A.6.4 Topic D Visualizing data with QuickSight
+* Scalable, serverless, business intelligence (BI) service
+* Embeddable into your existing applications
+* Dynamic, machine learning powered insights
+
+When you import data into a dataset, instead of using a direct structured query language query, it becomes SPICE data because of how it's stored. In Enterprise edition, data stored in SPICE is encrypted at rest. When you create or edit a dataset, you choose to use either SPICE or a direct query, unless the dataset contains uploaded files. Importing (also called ingesting ) your data into SPICE can save time and money:
+* **Your analytical queries process quickly**.
+* **You don't need to wait for a direct query to process**.
+* Your data stored in ``SPICE`` **can be reused multiple times without incurring additional costs**. If you use a data source that charges per query, you're charged for querying the data when you first create the dataset and later when you refresh the dataset.
+
+``Embedded QuickSight dashboards`` **provide a serverless architecture to scale insights from your growing user base**. You only pay for usage with the unique pay per session pricing model. Applications can authenticate the dashboard users with the identity provider you choose (for example, AWS Managed Microsoft AD, Amazon Cognito, or any SAML based federated single sign on provider your organization uses).
+
+## A.7 Module 6: Modern data architecture
+### A.7.1 Topic A Modern data architecture
+<figure>
+  <img src="./fig/46.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
+#### A.7.1.1 Scalable data lakes 
+This course has focused on the business value of data lakes and how to build data lakes with ``AWS Lake Formation``. Business insight is driven by data of all types: structured, semi structured, and unstructured. Organizations have large volumes of data generated continuously. To be able to extract value, data must be trusted and convenient to find by those roles that need access.
+
+Key AWS services include the following:
+* ``Amazon Simple Storage Service`` (Amazon S3) Highly durable, scalable, secure, fast, and inexpensive storage service.
+* ``Lake Formation`` Integrated data lake service that makes it convenient to ingest, clean, catalog, transform, and secure data and make it available for analysis and machine learning
+* ``Amazon Athena`` Interactive analytics service that makes it convenient to analyze data in Amazon S3 using Python or standard SQL.
+
+#### A.7.1.2 Purpose built analytics services 
+Although a data lake supports queries and exploratory analytics, there are use cases that require high volume and highly performant analytics. Also, purpose built data stores are integral to the Modern data architecture.
+
+Key AWS services include the following:
+* ``Amazon Aurora`` Fully managed relational database engine compatible with MySQL and PostgreSQL.
+* ``Amazon DynamoDB`` Fully managed, serverless, NoSQL database that is designed to support key value and document data models.
+* ``Amazon OpenSearch Service`` Fully managed service to deploy, operate, and scale OpenSeach Service (now supporting Apache Lucene 9) clusters. For more
+
+* ``Amazon EMR`` Big data solution for petabyte scale data processing, interactive analytics, and ML using open source frameworks such as Apache Spark, Apache Hive, and Presto. For more information, see:
+* ``Amazon Redshift / Amazon Redshift Spectrum`` Cloud data warehouse that uses SQL to analyze structured and semi structured data across data warehouses, operational databases, and data lakes.
+* ``Amazon SageMaker`` Fully managed service to prepare data and build, train, and deploy ML models for any use case with fully managed infrastructure, tools, and
+workflows.
+* ``Amazon Managed Streaming for Apache Kafka`` (Amazon MSK) Streaming data service that manages Apache Kafka infrastructure and operations.
+* ``Amazon Kinesis Data Analytics`` A convenient way to transform and analyze streaming data in real time with Apache Flink.
+
+#### A.7.1.3 Unified data access
+As the data in your data lakes and purpose built data stores continues to grow, you might need to be able to move a portion of that data from one data store to another.
+Key AWS services include the following:
+* ``AWS Glue`` Serverless data integration service that makes it easier to discover, prepare, move, and integrate data from multiple sources for analytics, ML, and application development.
+* ``Amazon Kinesis Data Firehose`` Streaming ETL solution to load streaming data into data stores and analytics tools. It can capture, transform, and load streaming data into Amazon S3, Amazon Redshift, OpenSearch Service, and Splunk.
+* ``AWS Database Migration Service`` (AWS DMS) Managed migration and replication service that helps move your database and analytics workloads to AWS quickly, securely, and with minimal downtime and zero data loss.
+* ``AWS Transfer`` Family Offers fully managed support for the transfer of files ov  Secure File Transfer Protocol, Applicability Statement 2, FTP Secure, and FTP directly into and out of Amazon S3 or Amazon EFS.
+* ``Amazon MSK`` Streaming data service that manages Apache Kafka infrastructure and operations.
+* ``Amazon AppFlow`` Fully managed integration service where you can securely transfer data between software as a service applications like Salesforce, Marketo, Slack, and ServiceNow, and AWS services like Amazon S3 and Amazon Redshift.
+
+#### A.7.1.4 Unified governance
+One critical piece of a modern analytics architecture is the ability for customers to authorize, manage, and audit access to data.
+
+Key AWS Service
+* ``Lake Formation``
+
+#### A.7.1.5 Performant and cost effective 
+AWS is committed to providing great performance at a low cost across all analytics services.
+
+A ``data mesh`` is **an architectural framework that solves advanced data security challenges through distributed, decentralized ownership**. Organizations have multiple data sources from different lines of business that must be integrated for analytics. 
+> A ``data mesh`` **architecture effectively unites the disparate data sources and links them together through centrally managed data sharing and governance guidelines**. 
+
+Business functions can maintain control over how shared data is accessed, who accesses it, and in what formats it’s accessed. A ``data mesh`` adds complexities to architecture but also brings efficiency by improving data access, security, and scalability.
+
+### A.8 Topic B Data movement scenarios
+Customers store data in a data lake. As needed, customers then move portions of that data to a purpose built analytics service to do additional ML or analytics.
+<figure>
+  <img src="./fig/47.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
+The high-level architecture pattern has data domains managing their data architecture. Within a data domain, access for local consumers is managed through the local Lake Formation and data catalog. In addition to the data domain accounts and data lakes, there is a central account that provides the enterprise-wide catalog for data discovery, reporting, and auditing. It’s important that sharing is done through metadata linking alone. Data isn’t copied to the central account, and ownership remains with the producer. The central catalog makes it convenient for any user to find data and to request access. A consumer can then use their tool of choice inside of their own environment to perform analytics and ML on the data.
+The workflow from producer to consumer includes the following steps:
+1. Data lake (producer) account – Data source locations hosted by the producer are created within the producer’s AWS Glue Data Catalog and registered with Lake Formation.
+2. Publishing a data product results in entry in Lake Formation Data Catalog entities (database, table, columns, attributes) within the central governance account. This makes it convenient to find and discover data products across the enterprise.
+3. The central Lake Formation Data Catalog shares the data catalog resources back to the producer account with required permissions through Lake Formation resource links to metadata databases and tables.
+4. Lake Formation permissions are granted in the central account to producer role personas (such as the data engineer role) to manage schema changes and perform data transformations (alter, delete, update) on the central data catalog.
+5. Producers accept the resource share from the central governance account so that they can make changes to the schema at a later time.
+6. Data changes made within the producer account are automatically propagated into the central governance catalog.
+7. Based on a consumer access request and the need to make data visible in the consumer’s AWS Glue Data Catalog, the central account owner grants Lak  Formation permissions to a consumer account. This is based on direct entity sharing or tag based access controls, which can be used to administer access through controls like data classification, cost center, or environment.
+8. Lake Formation in the consumer account can define access permissions on these datasets for local users to consume. Users in the consumer account, like data analysts and data scientists, can query data using their chosen tool, such as Athena or Amazon Redshift.
+
+``AWS Analytic Reference`` Architecture provides a set of assets (Cloud Development Kit, or CDK, constructs) that can help jumpstart building a data mesh on AWS. For more
+
+Note:
+
+* [Use an event-driven architecture to build a data mesh on AWS](https://aws.amazon.com/blogs/big-data/use-an-event-driven-architecture-to-build-a-data-mesh-on-aws/)
+
+#### A.8.1 Support for advanced data architectures
+* ``AWS database and analytics services``
+* ``AWS data`` movement and transformation services
+* ``Lake Formation`` fine grained access control, tags, and TBAC
+* ``Cross account links``
+* ``Lake Formation governed tables``
 
 
 
