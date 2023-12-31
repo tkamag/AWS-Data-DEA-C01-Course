@@ -371,17 +371,18 @@ Key AWS Service
 #### A.7.1.5 Performant and cost effective 
 AWS is committed to providing great performance at a low cost across all analytics services.
 
+### A.8 Topic B Data movement scenarios
+Customers store data in a data lake. As needed, customers then move portions of that data to a purpose built analytics service to do additional ML or analytics.
+<figure>
+  <img src="./fig/47.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
 A ``data mesh`` is **an architectural framework that solves advanced data security challenges through distributed, decentralized ownership**. Organizations have multiple data sources from different lines of business that must be integrated for analytics. 
 
 > A ``data mesh`` **architecture effectively unites the disparate data sources and links them together through centrally managed data sharing and governance guidelines**. 
 
 Business functions can maintain control over how shared data is accessed, who accesses it, and in what formats it’s accessed. A ``data mesh`` adds complexities to architecture but also brings efficiency by improving data access, security, and scalability.
 
-### A.8 Topic B Data movement scenarios
-Customers store data in a data lake. As needed, customers then move portions of that data to a purpose built analytics service to do additional ML or analytics.
-<figure>
-  <img src="./fig/47.png" alt=".." title="Optional title" width="55%" height="70%"/>
-</figure>
 
 The high-level architecture pattern has data domains managing their data architecture. Within a data domain, access for local consumers is managed through the local Lake Formation and data catalog. In addition to the data domain accounts and data lakes, there is a central account that provides the enterprise-wide catalog for data discovery, reporting, and auditing. It’s important that sharing is done through metadata linking alone. Data isn’t copied to the central account, and ownership remains with the producer. The central catalog makes it convenient for any user to find data and to request access. A consumer can then use their tool of choice inside of their own environment to perform analytics and ML on the data.
 The workflow from producer to consumer includes the following steps:
