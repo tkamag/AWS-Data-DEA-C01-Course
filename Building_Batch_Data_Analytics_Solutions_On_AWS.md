@@ -94,5 +94,15 @@ The are two types of clusters;
       * Custom solution
     * Termination protection
 * Choosing compute 
+  * ``EC2 instances``
+  * Pricing options(On-demand for Leader node, R.I for Core node and Spot instances for Task nodes)
+  * ``EMR`` features
+    * Optimized Spark runtime
+    * Instance fleets: **Allows us to provision and manage a combination of ``EC2`` instances type within a single cluster**.(Up to 5) 
+    * Instance groups: **Set of ``EC2`` instances**.
 * Scaling clusters 
+  * ``Automatic scaling`` with **custom scaling policy**
+    * **You can scale use some more metrics.**
+  * ``EMR managed scaling``(don't have to build scaling policy, use cloudwatch and ML to scale). 
+    * **You just set a Max and Min of your core node.**
 * Designing storage
