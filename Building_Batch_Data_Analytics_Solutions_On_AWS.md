@@ -15,6 +15,21 @@
       - [A.2.2.2 Formatting](#a222-formatting)
       - [A.2.2.3 Compression](#a223-compression)
       - [A.2.2.4 File size](#a224-file-size)
+    - [A.2.3 Data ingestion techniques](#a23-data-ingestion-techniques)
+      - [A.2.3.1 Using Amazon EMR connectors](#a231-using-amazon-emr-connectors)
+      - [A.2.3.2 Ingesting data into Amazon EMR](#a232-ingesting-data-into-amazon-emr)
+  - [A.3 High-Performance Batch Data Analytics Using Apache Spark on Amazon EMR](#a3-high-performance-batch-data-analytics-using-apache-spark-on-amazon-emr)
+    - [A.3.1 Spark concepts](#a31-spark-concepts)
+  - [A.4 Transformation, processing, and analytics](#a4-transformation-processing-and-analytics)
+    - [A.4.1 Spark data processing orchestration](#a41-spark-data-processing-orchestration)
+  - [A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive](#a5-processing-and-analyzing-batch-data-with-amazon-emr-and-apache-hive)
+    - [A.5.1 Sample migration to Amazon EMR](#a51-sample-migration-to-amazon-emr)
+    - [A.5.2 Using open-source applications on Amazon EMR](#a52-using-open-source-applications-on-amazon-emr)
+    - [A.5.3 Transformation, processing, and analytics](#a53-transformation-processing-and-analytics)
+      - [A.5.3.1 Transforming data in Amazon EMR](#a531-transforming-data-in-amazon-emr)
+      - [A.5.3.2 Using Hive for interactive queries](#a532-using-hive-for-interactive-queries)
+      - [A.5.3.3 Using Amazon S3 Select in Hive queries](#a533-using-amazon-s3-select-in-hive-queries)
+      - [A.5.3.4 Batch processing with Hive SQL scripts](#a534-batch-processing-with-hive-sql-scripts)
 
 ## A.1 Module A: Overview of Data Analytics and the Data Pipeline
 <figure>
@@ -178,4 +193,98 @@ For a country,
 #### A.2.2.4 File size
 <figure>
   <img src="./fig/61.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
+### A.2.3 Data ingestion techniques
+#### A.2.3.1 Using Amazon EMR connectors
+
+<figure>
+  <img src="./fig/62.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
+#### A.2.3.2 Ingesting data into Amazon EMR
+<figure>
+  <img src="./fig/63.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
+**DisCp**: Distributed Copy
+> **DisCp** is a tool using for large inter and intra cluster copy. And it's part of Hadoop.
+>
+**S3DisCp**: Same as Distributed Copy but optimized to work with AWS, particularly ``S3``. You can **copy large amount of date from ``S3`` into ``HDFS``** and these data can be process by other steps. 
+* It's more scalable.
+* **src** and **dest** are the two required argument.
+
+## A.3 High-Performance Batch Data Analytics Using Apache Spark on Amazon EMR
+
+**Benefits of Spark on Amazon EMR**
+* Fast performance
+* Developer friendly
+* Integration with AWS services
+
+**Spark features on Amazon EMR**
+* EMRFS S3-optimized committer
+* Spark Web UI
+* Amazon EMR on EKS Spark clusters
+* AWS Glue Data Catalog for Spark SQL
+
+### A.3.1 Spark concepts
+<figure>
+  <img src="./fig/65.png" alt=".." title="Optional title" width="55%" height="70%"/>
+  <img src="./fig/66.png" alt=".." title="Optional title" width="55%" height="70%"/> 
+  <img src="./fig/67.png" alt=".." title="Optional title" width="55%" height="70%"/>    
+</figure>
+
+* The **driver** is the **point of entry** into ``Spark``. It create  a ``Spark Context``, a ``Spark`` environment **who will distribute individual task across all the workers**.
+* **Cluster Manager** decide which **worker nodes** is available  to receive which tasks. 
+## A.4 Transformation, processing, and analytics
+### A.4.1 Spark data processing orchestration
+* Amazon EMR steps
+* Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
+* AWS Step Functions
+
+<figure>
+  <img src="./fig/68.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+## A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive
+### A.5.1 Sample migration to Amazon EMR
+<figure>
+  <img src="./fig/69.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+### A.5.2 Using open-source applications on Amazon EMR
+**Hive**
+• Interactive, one-time query
+• Metadata store
+• Batch ETL
+
+**Hue**
+• Web-based GUI
+• Front end for Hadoop applications
+
+**Apache HBase**
+• Distributed, nonrelational database
+
+**S3**
+
+### A.5.3 Transformation, processing, and analytics
+#### A.5.3.1 Transforming data in Amazon EMR
+<figure>
+  <img src="./fig/70_.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.5.3.2 Using Hive for interactive queries
+
+<figure>
+  <img src="./fig/71.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.5.3.3 Using Amazon S3 Select in Hive queries
+<figure>
+  <img src="./fig/72.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.5.3.4 Batch processing with Hive SQL scripts
+<figure>
+  <img src="./fig/73.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
