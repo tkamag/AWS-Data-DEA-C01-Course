@@ -4,8 +4,10 @@
   - [A.2 Module 1: Introduction to Amazon EMR](#a2-module-1-introduction-to-amazon-emr)
     - [A.1.1 Benefits of Hadoop on Amazon EMR](#a11-benefits-of-hadoop-on-amazon-emr)
   - [A.2 Amazon EMR cluster architecture](#a2-amazon-emr-cluster-architecture)
-  - [A.2.1 Single Leader node](#a21-single-leader-node)
-  - [A.2.1 Three Leader node](#a21-three-leader-node)
+    - [A.2.1 Single Leader node](#a21-single-leader-node)
+    - [A.2.1 Three Leader node](#a21-three-leader-node)
+  - [A.3 Options for deploying Hadoop in AWS](#a3-options-for-deploying-hadoop-in-aws)
+  - [A.4 Cost management strategies](#a4-cost-management-strategies)
 
 ## A.1 Module A: Overview of Data Analytics and the Data Pipeline
 <figure>
@@ -36,7 +38,7 @@ Best practice is to optimize for data querying:
 * Fully managed
 
 ## A.2 Amazon EMR cluster architecture
-## A.2.1 Single Leader node
+### A.2.1 Single Leader node
 <figure>
   <img src="./fig/50_.png" alt=".." title="Optional title" width="55%" height="70%"/>
 </figure>
@@ -59,7 +61,38 @@ The are two types of clusters;
 * **Persistent cluster**:
 * **Transient cluster**:  Shutdown automatically after it given jobs is completed. It's most cost effective approach. Any **data store in HDFS will automatically been deleted** as well.
 
-## A.2.1 Three Leader node
+### A.2.1 Three Leader node
 <figure>
-  <img src="./fig/51.png" alt=".." title="Optional title" width="55%" height="70%"/>
+  <img src="./fig/52.png" alt=".." title="Optional title" width="55%" height="70%"/>
 </figure>
+
+**Three Leader node** brings more reliability(if one larder node breakdown other one takeover **i.e only one is active at the time**). 
+* With this architecture **we have an external storage keeping metadata from the primary leader Node**
+
+## A.3 Options for deploying Hadoop in AWS
+<figure>
+  <img src="./fig/53.png" alt=".." title="Optional title" width="55%" height="70%"/>
+</figure>
+
+* ``Apache Hadoop`` on ``Amazon EC2``
+* ``Amazon EMR`` on ``Amazon EC2``
+* ``Amazon EMR`` on ``Amazon EKS``
+* ``Amazon EMR`` on ``Amazon Outpost``
+
+## A.4 Cost management strategies
+* EMR cluster lifecycle
+  * **Starting**
+  * **Bootstrapping**(Script that you run on your cluster when instances is creating or running)
+  * **Installing native applications**(installing some applications like Hadoop, Hive, HBase, etc...)
+  * **Running** (You can now connect to the cluster)
+  * **Waiting**
+  * **Terminating(persistent cluster) or terminated (transient cluster)**
+    * Manual termination
+    * Automation
+      * At the end of job
+      * After **idle** period
+      * Custom solution
+    * Termination protection
+* Choosing compute 
+* Scaling clusters 
+* Designing storage
