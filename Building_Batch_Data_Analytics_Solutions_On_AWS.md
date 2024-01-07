@@ -31,6 +31,7 @@
       - [A.5.3.2 Using Hive for interactive queries](#a532-using-hive-for-interactive-queries)
       - [A.5.3.3 Using Amazon S3 Select in Hive queries](#a533-using-amazon-s3-select-in-hive-queries)
       - [A.5.3.4 Batch processing with Hive SQL scripts](#a534-batch-processing-with-hive-sql-scripts)
+  - [A.5 Introduction to Apache HBase on Amazon EMR](#a5-introduction-to-apache-hbase-on-amazon-emr)
 
 ## A.1 Module A: Overview of Data Analytics and the Data Pipeline
 <figure>
@@ -300,8 +301,13 @@ The are many ways of running a notebooks on ``EMR``:
   <img src="./fig/70_.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
 
+Workflows are divided into steps.
+* Here raw data has been loaded into ``S3``
+* Then we can use ``EMRFS`` to load data into ``EMR``
+* Data can also been put into ``Hdfs``
+* We can continue working on ``hdfs`` until the last step where the output data will use ``EMRFS`` to output data into ``S3``.
 #### A.5.3.2 Using Hive for interactive queries
-
+> **Partitions are helpful when you have a where clause**
 <figure>
   <img src="./fig/71.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
@@ -310,6 +316,11 @@ The are many ways of running a notebooks on ``EMR``:
 <figure>
   <img src="./fig/72.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
+
+````sql
+SET s3select.filter=true
+````
+will enable the ``s3select``
 
 What ``S3 Select`` will do, 
 * is **to process some of the actual condition as part of the where clause on some data  not on a ``EMR`` cluster but directly on the dataset itself on ``S3``**.
@@ -323,8 +334,11 @@ What ``S3 Select`` will do,
 
 You can also manage a catalog as well. Statement
 
-
 ````sql
 CREATE  EXTERNAL TABLE stockprice
 ````
-create a ``Hive catalog`` and operate on the catalog itself. ok
+create a ``Hive catalog`` and operate on the catalog itself.
+
+> If you want to **copy data or reorganize data** that is not partition into data that is partition, plus an extra thing thing like  converting into parquet format, **we need to create an external table**.
+>
+## A.5 Introduction to Apache HBase on Amazon EMR
