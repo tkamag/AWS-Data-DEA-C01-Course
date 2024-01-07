@@ -263,9 +263,15 @@ The are many ways of running a notebooks on ``EMR``:
 * Open-source applications: **Use this when you create a customs cluster** by selecting either  **jupyter notebook** or **Zeppelin**. These application run on the **primary node**.
   • Jupyter Notebook
   • Apache Zeppelin
+  
 * Amazon EMR Notebooks : Present on ``EMR`` itself as as serverless notebooks and don't need to create an ``EMR`` cluster.
-  * * You can run a serverless notebook(**that's not running on any cluster**), **but can be attach or detach to any cluster**
-* EMR Studio :Present on ``EMR`` itself as as serverless notebooks and don't need to create an ``EMR`` cluster.
+  * You can run a serverless notebook(**that's not running on any cluster**), **but can be attach or detach to any cluster**
+  
+* EMR Studio :Present on ``EMR`` itself as as serverless notebooks and don't need to create an ``EMR`` cluster. 
+  * One **workspaces** map to one**jupyterHub** 
+  * In one **jupyterHub** we can have multiple notebooks.
+
+> ``Amazon EMR Notebooks`` is now part of ``Amazon Studio``
 
 ## A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive
 ### A.5.1 Sample migration to Amazon EMR
