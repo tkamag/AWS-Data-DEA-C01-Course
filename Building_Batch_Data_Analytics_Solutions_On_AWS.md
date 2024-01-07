@@ -327,4 +327,4 @@ You can also manage a catalog as well. Statement
 ````sql
 CREATE  EXTERNAL TABLE stockprice
 ````
-create a ``Hive catalog`` and operate on the catalog itself.
+create a ``Hive catalog`` and operate on the catalog itself. ok
