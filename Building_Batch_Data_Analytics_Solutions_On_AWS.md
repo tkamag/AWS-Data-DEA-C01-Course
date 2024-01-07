@@ -22,6 +22,7 @@
     - [A.3.1 Spark concepts](#a31-spark-concepts)
   - [A.4 Transformation, processing, and analytics](#a4-transformation-processing-and-analytics)
     - [A.4.1 Spark data processing orchestration](#a41-spark-data-processing-orchestration)
+    - [A.4.2 Using notebooks with Amazon EMR](#a42-using-notebooks-with-amazon-emr)
   - [A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive](#a5-processing-and-analyzing-batch-data-with-amazon-emr-and-apache-hive)
     - [A.5.1 Sample migration to Amazon EMR](#a51-sample-migration-to-amazon-emr)
     - [A.5.2 Using open-source applications on Amazon EMR](#a52-using-open-source-applications-on-amazon-emr)
@@ -142,7 +143,8 @@ The are two types of clusters;
   <img src="./fig/55.png" alt=".." title="Optional title" width="55%" height="70%"/>
 </figure>
 
-    * ``Hadoop Distributed File System (HDFS)``        
+
+  * ``Hadoop Distributed File System (HDFS)``        
       * Design to store and manage large amount of data across multiple ``Hadoop``  cluster
       * Provide **fault tolerance, reliability, availability**
       * Use ``EBS`` bloc storage.
@@ -246,6 +248,25 @@ For a country,
   <img src="./fig/68.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
 
+**Spark tuning and best practices**
+* Selection of nodes 
+* Latest EMR versions 
+* Configuration parameters 
+* Application monitoring
+
+### A.4.2 Using notebooks with Amazon EMR
+<figure>
+  <img src="./fig/74.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+The are many ways of running a notebooks on ``EMR``:
+* Open-source applications: **Use this when you create a customs cluster** by selecting either  **jupyter notebook** or **Zeppelin**. These application run on the **primary node**.
+  • Jupyter Notebook
+  • Apache Zeppelin
+* Amazon EMR Notebooks : Present on ``EMR`` itself as as serverless notebooks and don't need to create an ``EMR`` cluster.
+  * * You can run a serverless notebook(**that's not running on any cluster**), **but can be attach or detach to any cluster**
+* EMR Studio :Present on ``EMR`` itself as as serverless notebooks and don't need to create an ``EMR`` cluster.
+
 ## A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive
 ### A.5.1 Sample migration to Amazon EMR
 <figure>
@@ -284,7 +305,20 @@ For a country,
   <img src="./fig/72.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
 
+What ``S3 Select`` will do, 
+* is **to process some of the actual condition as part of the where clause on some data  not on a ``EMR`` cluster but directly on the dataset itself on ``S3``**.
+* **Only rows with true filter will move to the cluster**
+* Options to speed your ``Hive`` performances and also reduce costs as well.
+  
 #### A.5.3.4 Batch processing with Hive SQL scripts
 <figure>
   <img src="./fig/73.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
+
+You can also manage a catalog as well. Statement
+
+
+````sql
+CREATE  EXTERNAL TABLE stockprice
+````
+create a ``Hive catalog`` and operate on the catalog itself.
