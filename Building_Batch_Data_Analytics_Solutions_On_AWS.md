@@ -23,15 +23,30 @@
   - [A.4 Transformation, processing, and analytics](#a4-transformation-processing-and-analytics)
     - [A.4.1 Spark data processing orchestration](#a41-spark-data-processing-orchestration)
     - [A.4.2 Using notebooks with Amazon EMR](#a42-using-notebooks-with-amazon-emr)
-  - [A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive](#a5-processing-and-analyzing-batch-data-with-amazon-emr-and-apache-hive)
-    - [A.5.1 Sample migration to Amazon EMR](#a51-sample-migration-to-amazon-emr)
-    - [A.5.2 Using open-source applications on Amazon EMR](#a52-using-open-source-applications-on-amazon-emr)
-    - [A.5.3 Transformation, processing, and analytics](#a53-transformation-processing-and-analytics)
-      - [A.5.3.1 Transforming data in Amazon EMR](#a531-transforming-data-in-amazon-emr)
-      - [A.5.3.2 Using Hive for interactive queries](#a532-using-hive-for-interactive-queries)
-      - [A.5.3.3 Using Amazon S3 Select in Hive queries](#a533-using-amazon-s3-select-in-hive-queries)
-      - [A.5.3.4 Batch processing with Hive SQL scripts](#a534-batch-processing-with-hive-sql-scripts)
-  - [A.5 Introduction to Apache HBase on Amazon EMR](#a5-introduction-to-apache-hbase-on-amazon-emr)
+    - [A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive](#a5-processing-and-analyzing-batch-data-with-amazon-emr-and-apache-hive)
+      - [A.5.1 Sample migration to Amazon EMR](#a51-sample-migration-to-amazon-emr)
+      - [A.5.2 Using open-source applications on Amazon EMR](#a52-using-open-source-applications-on-amazon-emr)
+      - [A.5.3 Transformation, processing, and analytics](#a53-transformation-processing-and-analytics)
+        - [A.5.3.1 Transforming data in Amazon EMR](#a531-transforming-data-in-amazon-emr)
+        - [A.5.3.2 Using Hive for interactive queries](#a532-using-hive-for-interactive-queries)
+        - [A.5.3.3 Using Amazon S3 Select in Hive queries](#a533-using-amazon-s3-select-in-hive-queries)
+        - [A.5.3.4 Batch processing with Hive SQL scripts](#a534-batch-processing-with-hive-sql-scripts)
+    - [A.5.4 Introduction to Apache HBase on Amazon EMR](#a54-introduction-to-apache-hbase-on-amazon-emr)
+      - [A.5.4.1 Use case: Nonrelational data processing in Amazon EMR](#a541-use-case-nonrelational-data-processing-in-amazon-emr)
+      - [A.5.4.2 Sample nonrelational data processing in Amazon EMR](#a542-sample-nonrelational-data-processing-in-amazon-emr)
+      - [A.5.4.3 Using HBase on EMR clusters](#a543-using-hbase-on-emr-clusters)
+      - [A.5.4.4 Using HBase on EMR clusters](#a544-using-hbase-on-emr-clusters)
+  - [A.6 Serverless Data Processing](#a6-serverless-data-processing)
+    - [A.6.1 Serverless data processing, transformation, and analytics](#a61-serverless-data-processing-transformation-and-analytics)
+    - [A.6.2 Using AWS Glue with Amazon EMR workloads](#a62-using-aws-glue-with-amazon-emr-workloads)
+      - [A.6.2.1 Apache Spark and AWS Glue ETL](#a621-apache-spark-and-aws-glue-etl)
+      - [A.6.2.2 EMR Serverless](#a622-emr-serverless)
+  - [A.7 Security and Monitoring of Amazon EMR Clusters](#a7-security-and-monitoring-of-amazon-emr-clusters)
+    - [A.7.1 Securing EMR clusters](#a71-securing-emr-clusters)
+    - [A.7.2 Authorization in Amazon EMR](#a72-authorization-in-amazon-emr)
+      - [A.7.2.1 Using Lake Formation permissions inAmazon EMR](#a721-using-lake-formation-permissions-inamazon-emr)
+      - [A.7.2.2 Using Apache Ranger for fine-grained data access control in Amazon EMR](#a722-using-apache-ranger-for-fine-grained-data-access-control-in-amazon-emr)
+      - [A.7.2.3 Encrypting data in Amazon EMR](#a723-encrypting-data-in-amazon-emr)
 
 ## A.1 Module A: Overview of Data Analytics and the Data Pipeline
 <figure>
@@ -274,13 +289,13 @@ The are many ways of running a notebooks on ``EMR``:
 
 > ``Amazon EMR Notebooks`` is now part of ``Amazon Studio``
 
-## A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive
-### A.5.1 Sample migration to Amazon EMR
+### A.5 Processing and Analyzing Batch Data with Amazon EMR and Apache Hive
+#### A.5.1 Sample migration to Amazon EMR
 <figure>
   <img src="./fig/69.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
 
-### A.5.2 Using open-source applications on Amazon EMR
+#### A.5.2 Using open-source applications on Amazon EMR
 **Hive**
 • Interactive, one-time query
 • Metadata store
@@ -289,14 +304,15 @@ The are many ways of running a notebooks on ``EMR``:
 **Hue**
 • Web-based GUI
 • Front end for Hadoop applications
+* **Run on a browser with an SSH tunnel to the primary or leader node**
 
 **Apache HBase**
 • Distributed, nonrelational database
 
 **S3**
 
-### A.5.3 Transformation, processing, and analytics
-#### A.5.3.1 Transforming data in Amazon EMR
+#### A.5.3 Transformation, processing, and analytics
+##### A.5.3.1 Transforming data in Amazon EMR
 <figure>
   <img src="./fig/70_.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
@@ -306,13 +322,14 @@ Workflows are divided into steps.
 * Then we can use ``EMRFS`` to load data into ``EMR``
 * Data can also been put into ``Hdfs``
 * We can continue working on ``hdfs`` until the last step where the output data will use ``EMRFS`` to output data into ``S3``.
-#### A.5.3.2 Using Hive for interactive queries
+  
+##### A.5.3.2 Using Hive for interactive queries
 > **Partitions are helpful when you have a where clause**
 <figure>
   <img src="./fig/71.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
 
-#### A.5.3.3 Using Amazon S3 Select in Hive queries
+##### A.5.3.3 Using Amazon S3 Select in Hive queries
 <figure>
   <img src="./fig/72.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
@@ -327,7 +344,7 @@ What ``S3 Select`` will do,
 * **Only rows with true filter will move to the cluster**
 * Options to speed your ``Hive`` performances and also reduce costs as well.
   
-#### A.5.3.4 Batch processing with Hive SQL scripts
+##### A.5.3.4 Batch processing with Hive SQL scripts
 <figure>
   <img src="./fig/73.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
@@ -341,4 +358,97 @@ create a ``Hive catalog`` and operate on the catalog itself.
 
 > If you want to **copy data or reorganize data** that is not partition into data that is partition, plus an extra thing thing like  converting into parquet format, **we need to create an external table**.
 >
-## A.5 Introduction to Apache HBase on Amazon EMR
+### A.5.4 Introduction to Apache HBase on Amazon EMR
+``Hbase`` is an **Open-source, non-relational, columns oriented, fully managed, fault tolerant, distributed database in Hadoop clusters**. It's a **consistent, real-time access for tables that have billions rows and millions columns**.
+
+#### A.5.4.1 Use case: Nonrelational data processing in Amazon EMR
+<figure>
+  <img src="./fig/75.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.5.4.2 Sample nonrelational data processing in Amazon EMR
+<figure>
+  <img src="./fig/76.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.5.4.3 Using HBase on EMR clusters
+<figure>
+  <img src="./fig/77.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.5.4.4 Using HBase on EMR clusters
+<figure>
+  <img src="./fig/78.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+* To make an ``HBase API`` calls mwe need a **persistent EMR cluster**
+
+## A.6 Serverless Data Processing
+### A.6.1 Serverless data processing, transformation, and analytics
+### A.6.2 Using AWS Glue with Amazon EMR workloads
+#### A.6.2.1 Apache Spark and AWS Glue ETL
+<figure>
+  <img src="./fig/79.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+<figure>
+  <img src="./fig/80.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+``EMR Serverless`` is the same as ``AWS Glue ETL`` only for **schema on read** 
+
+#### A.6.2.2 EMR Serverless
+<figure>
+  <img src="./fig/81.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+The are two options:
+* ``ENR on EKS \ Fargate``
+* ``EMR Serverless``
+
+> On ``EMR EC2`` we **have a cluster** and it's **highly available**.
+
+
+> On ``EMR EKS`` we **have a virtual cluster** and it's **highly available** which it's not the case with ``EMR on EC2``
+
+> With ``EMR on EC2`` we **have access to others applications like Hbase, Presto, Hive, Hue**
+
+
+> On ``EMR Serverless`` we **don't have a cluster, we have application instead**. When creating application, you **have to choose Runrime between Hive or Spark**
+
+We have an exemple with ``ENR Serverless`` where:
+* We have create an Application on the console by selecting ``ENR`` version, the **runtime**, their architecture, etc... and sent some jobs.
+* These jobs will have a certain numbers of workers running and we can attach an ``IAM role``.
+* Here we are going to paid for 3 workers.
+* Job B and C are going to run 
+
+## A.7 Security and Monitoring of Amazon EMR Clusters
+### A.7.1 Securing EMR clusters
+* ``EMR role``
+* ``EC2 instance profile``: Role attach to the ``EC2 instance``, so **core node** or **task node** can access data into ``S3``.
+* ``Auto scaling role``
+* Service role for ``EMR Notebooks``
+* ``Service-linked role``
+
+### A.7.2 Authorization in Amazon EMR
+* AWS Identity and Access Management (IAM)
+* Fine-grained access control
+  * AWS Lake Formation
+  * Apache Ranger
+
+#### A.7.2.1 Using Lake Formation permissions inAmazon EMR
+<figure>
+  <img src="./fig/82.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+  <img src="./fig/83.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.7.2.2 Using Apache Ranger for fine-grained data access control in Amazon EMR
+<figure>
+  <img src="./fig/84.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+  <img src="./fig/85.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.7.2.3 Encrypting data in Amazon EMR
+<figure>
+  <img src="./fig/86.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
