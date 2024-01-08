@@ -428,11 +428,29 @@ We have an exemple with ``ENR Serverless`` where:
 
 ## A.7 Security and Monitoring of Amazon EMR Clusters
 ### A.7.1 Securing EMR clusters
+
+
 * ``EMR role``
 * ``EC2 instance profile``: Role attach to the ``EC2 instance``, so **core node** or **task node** can access data into ``S3``.
-* ``Auto scaling role``
-* Service role for ``EMR Notebooks``
-* ``Service-linked role``
+* ``Auto scaling role``: Any clysters using ``Auto-scaling`` need to have the **auto-scaling** permissions
+* **Service role** for ``EMR Notebooks``
+* ``Service-linked role``: ``EMR role`` must allows the creation of a service link role to create spot or on-demand instance.
+
+<figure>
+<img src="./fig/90.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+One of the thing that ``Lake formation`` allow you to do is **to have very fine level data control specify within AWS**, and this **goes along further that a simple AWS Identity and Access management (IAM) permissions or role**.
+
+``IAM`` on Datalake, would allows you :
+* **to control access down to ``S3`` object**
+* **to control read and write**
+* **to access metadata in**
+  
+
+  > ``EMR role`` is the **permissions you give ro ``EMR`` to do something on your behalf**.
+
+  > ``EC2 instance profile`` is the **permissions you give to the individual ``EC2`` instances where the task code running to access S3 to get data**.
 
 ### A.7.2 Authorization in Amazon EMR
 * AWS Identity and Access Management (IAM)
