@@ -47,6 +47,10 @@
       - [A.7.2.1 Using Lake Formation permissions inAmazon EMR](#a721-using-lake-formation-permissions-inamazon-emr)
       - [A.7.2.2 Using Apache Ranger for fine-grained data access control in Amazon EMR](#a722-using-apache-ranger-for-fine-grained-data-access-control-in-amazon-emr)
       - [A.7.2.3 Encrypting data in Amazon EMR](#a723-encrypting-data-in-amazon-emr)
+    - [A.7.3 Monitoring and troubleshooting EMR clusters](#a73-monitoring-and-troubleshooting-emr-clusters)
+      - [A.7.3.1 Locating logs in Amazon EMR](#a731-locating-logs-in-amazon-emr)
+      - [A.7.3.2 Process to troubleshoot a failed EMR cluster](#a732-process-to-troubleshoot-a-failed-emr-cluster)
+      - [A.7.3.3 Process to troubleshoot a slow cluster](#a733-process-to-troubleshoot-a-slow-cluster)
 
 ## A.1 Module A: Overview of Data Analytics and the Data Pipeline
 <figure>
@@ -451,4 +455,35 @@ We have an exemple with ``ENR Serverless`` where:
 #### A.7.2.3 Encrypting data in Amazon EMR
 <figure>
   <img src="./fig/86.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+### A.7.3 Monitoring and troubleshooting EMR clusters
+* Amazon EMR console
+* Purpose-built services
+  * Amazon CloudWatch 
+  * AWS CloudTrail
+* Web interfaces, such as Hue
+* Spark history server
+
+#### A.7.3.1 Locating logs in Amazon EMR
+<figure>
+  <img src="./fig/87.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+**Considerations when troubleshooting Amazon EMR**
+* Input/output errors 
+* Permissions 
+* Resource management
+* Amazon VPC considerations 
+* Integration issues 
+* App-specific details
+
+#### A.7.3.2 Process to troubleshoot a failed EMR cluster
+<figure>
+  <img src="./fig/88.png" alt=".." title="Optional title" width="55%" height="70%"/>  
+</figure>
+
+#### A.7.3.3 Process to troubleshoot a slow cluster
+<figure>
+  <img src="./fig/89.png" alt=".." title="Optional title" width="55%" height="70%"/>  
 </figure>
