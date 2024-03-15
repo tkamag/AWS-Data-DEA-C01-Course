@@ -8,6 +8,7 @@
     - [A.2.1 How Do I Configure a Cluster in Amazon Redshift?](#a21-how-do-i-configure-a-cluster-in-amazon-redshift)
   - [A.3 Learn More](#a3-learn-more)
   - [A.4 Additional reading material](#a4-additional-reading-material)
+  - [A.5 Course Resources](#a5-course-resources)
 
 * [AWS Pricing Calculator](https://calculator.aws/#/createCalculator/Redshift)
 To estimate the cost of Amazon Redshift, choose the Go to Calculator button.
@@ -113,3 +114,38 @@ Managed environment to build, train, and deploy machine learning models
 
 * [Amazon S3](https://aws.amazon.com/s3/)
 Object storage service
+
+## A.5 Course Resources
+
+* [Amazon Redshift best practices](https://docs.aws.amazon.com/redshift/latest/dg/best-practices.html)
+Learn about Amazon Redshift best practices in the Database Developer Guide by choosing the Go to Guide button.
+
+* [Amazon Redshift ML](https://aws.amazon.com/redshift/features/redshift-ml/)
+Learn how to create, train, and deploy ML models using familiar SQL commands by choosing the Go to Webpage button.
+
+* [Amazon Redshift pricing](https://aws.amazon.com/redshift/pricing/)
+Learn more about Amazon Redshift pricing by choosing the Go to Webpage button.
+
+* [Amazon Redshift RSQL](https://docs.aws.amazon.com/redshift/latest/mgmt/rsql-query-tool.html)
+Learn about Amazon Redshift RSQL by choosing the Go to Guide button.
+
+* [AWS Pricing Calculator](https://calculator.aws/#/createCalculator/Redshift)
+Access the AWS Pricing Calculator by choosing the Go to Calculator button.
+
+* [COPY](https://docs.aws.amazon.com/redshift/latest/dg/r_COPY.html)
+Learn how to use the COPY command by choosing the Go to Guide button.
+
+* [Overview of managing clusters in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/mgmt/managing-cluster-operations.html)
+Get an overview of how to manage clusters in Amazon Redshift by choosing the Go to Guide button.
+
+* [Sharing data access clusters in Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/dg/datashare-overview.html)
+Learn how to share data access clusters in Amazon Redshift by choosing the Go to Guide button.
+
+* [SQL reference](https://docs.aws.amazon.com/redshift/latest/dg/cm_chap_SQLCommandRef.html)
+Learn about SQL reference in the Database Developer Guide by choosing the Go to Guide button.
+
+* [SUPER type](https://docs.aws.amazon.com/redshift/latest/dg/r_SUPER_type.html)
+Learn how to use SUPER type by choosing the Go to Webpage button.
+
+* [Working with concurrency scaling](https://docs.aws.amazon.com/redshift/latest/dg/concurrency-scaling.html)
+Learn more about working with concurrency scaling by choose the Go to Guide button.
