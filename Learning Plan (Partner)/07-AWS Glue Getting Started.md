@@ -63,7 +63,7 @@ To learn more about AWS Glue, choose the following button.
 * [AWS Glue pricing](https://aws.amazon.com/glue/pricing/)
 For more information on AWS Glue pricing, choose the following button.
 
-[AWS Glue pricing calculator](https://calculator.aws/#/createCalculator/Glue)
+* [AWS Glue pricing calculator](https://calculator.aws/#/createCalculator/Glue)
 To access the AWS Glue pricing calculator, choose the following button.
 
 
