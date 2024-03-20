@@ -55,6 +55,20 @@
   - [D.4 Create event-driven architectures](#d4-create-event-driven-architectures)
     - [D.4.1 Event-based fanout and notification using SNS](#d41-event-based-fanout-and-notification-using-sns)
     - [D.4.2 Event-based communication and backend](#d42-event-based-communication-and-backend)
+    - [D.4.3 Event-based processing with Amazon CloudWatch Events](#d43-event-based-processing-with-amazon-cloudwatch-events)
+  - [D.5 Automate workflows or derive predictive insights with machine learning](#d5-automate-workflows-or-derive-predictive-insights-with-machine-learning)
+    - [D.5.1 More engaging games](#d51-more-engaging-games)
+    - [D.5.2 Anomaly detection](#d52-anomaly-detection)
+    - [D.5.3 Revenue generation](#d53-revenue-generation)
+    - [D.5.4 Better analytics and operations](#d54-better-analytics-and-operations)
+  - [D.6 Detect player fraud with ML](#d6-detect-player-fraud-with-ml)
+  - [D.7 Game Analytics Pipeline solution](#d7-game-analytics-pipeline-solution)
+- [E. Summary](#e-summary)
+- [F Let's review](#f-lets-review)
+  - [F.1 Stages of an analytics pipeline](#f1-stages-of-an-analytics-pipeline)
+  - [F.2 Batch processing and analytics](#f2-batch-processing-and-analytics)
+  - [F.3 Near real-time processing and analytics](#f3-near-real-time-processing-and-analytics)
+  - [F.4 Putting it all together](#f4-putting-it-all-together)
 
 ## A.2 Stages of an analytics pipeline
 An analytics solution requires that multiple components work together to convert raw telemetry events into meaningful metrics and insights. **This set of components is called an analytics pipeline.**
@@ -697,14 +711,104 @@ Imagine that you detected fraudulent activity in your game. You could use events
 
 
 ### D.4.2 Event-based communication and backend
-–
-Another service you can use to create an event-based architecture to support Live Ops is Amazon Simple Queue Service (SQS).
+Another service you can use to create an event-based architecture to support ``Live Ops`` is ``Amazon Simple Queue Service (SQS)``.
+
+In this example, ``SQS`` **serves as a buffer queue between services**. This can reduce load on compute and databases as well. For example, **if there are 200,000 write requests to a database all at once, that database might get overloaded**. However, if you had an ``SQS`` queue, **it would buffer those requests to help avoid overloading the database and to better scale**.
+
+A potential use case for this architecture is using ``SQS`` to update a leaderboard. For example, 
+* **as a player achieves a certain level, it triggers a notification to an ``SNS`` topic**. 
+* The topic **then triggers a ``Lambda function`` to send data to an ``SQS`` queue that pushes data to a ``DynamoDB`` table to update that player's new level**.
+
+### D.4.3 Event-based processing with Amazon CloudWatch Events
+In addition to using ``CloudWatch`` **to display live metrics on a dashboard, you can configure it to create events in response to certain thresholds of metrics being exceeded.** 
+
+For example, 
+* **you can configure ``CloudWatch`` to monitor CPU utilization of your game servers and spin up additional instances if a target threshold is reached**. 
+* If **CPU utilization exceeds your target of 85%**, for instance, ``CloudWatch`` then sends a notification and scales out to include additional servers.
+
+## D.5 Automate workflows or derive predictive insights with machine learning
+Another way you can extend your analytics capabilities is through the use of ``machine learning (ML)``. From detecting fraud and predicting player behavior, to automating playtesting, ``ML`` can make your game development processes faster and smarter. 
+
+``ML`` **helps you find patterns in your data and use these patterns to make predictions**. These predictive insights into user behavior and gameplay can help you deliver personalized user experiences.
+
+### D.5.1 More engaging games
+Games today are “live games” and are continuously updated with fresh content to keep players engaged. 
+To do this, you need to understand and even predict player behavior and what changes to the game will bring about the most player engagement or re-engagement. You need to understand things such asas:
+* **how to increase player retention over time**, 
+* **which players are likely to churn out**, and 
+* **how to find and deal with cheaters to ensure the game remains fun for everyone**. 
+
+All of this (and more) needs to be done while the game is live, which becomes hard to manage as a manual process at scale.
+
+### D.5.2 Anomaly detection
+Detecting and responding to players cheating or hacking your game are ongoing concerns. If cheaters are not detected and banned from the game, other players may become frustrated and ultimately stop playing. You want to address this before your game is negatively impacted. With ``ML``, **you can identify abusers through anomaly detection**. 
+
+For example:
+* You can create a **custom SageMaker model** that can **detect if a human is playing your game inhumanely well**, defying the laws of physics, etc.
+* You can also **use anomaly detection for churn detection** – can you tell if a player is going to stop playing your game in a month from now? If so, what can you do to keep them more engaged?
+
+### D.5.3 Revenue generation
+You can better monetize your game by incorporating personalized content recommendations. With ``ML``, **you can identify players that are likely to make in-app purchases** and then show personalized content to the players to incentivize them to make purchases. 
+
+For example:
+* Use an ``ML model`` **that can recommend a relevant game item to a player who is stuck on a certain level**. This game item would be for purchase and will help them get through to the next level. 
+* Show ads that recommend other popular games that are similar to the one the player is currently playing.
+
+### D.5.4 Better analytics and operations
+You can also **expand your data analytics to include things like sentiment analysis of user chats** with ``Amazon Comprehend``. 
+
+For example, you can tell if user chat is positive or negative and audit it for inappropriate content as well.  
+
+## D.6 Detect player fraud with ML
+Fraud detection using machine learning enables you to execute automated transaction processing on a dataset, detecting potentially fraudulent activity and flagging that activity for review. The following diagram presents an architecture you can implement.  
+
+![alt text](image-29.png)
+
+* [How Call of Duty uses ML to increase player engagement](https://www.youtube.com/watch?v=ir33m9RJxs0)
+
+Learn how Call of Duty engages millions of players each day by running real-time analytics and machine learning pipelines with the help of AWS Cloud services.
+
+* [How Rovio teaches Angry Birds to fly in the cloud using ML](https://www.youtube.com/watch?v=U-NsVcDKU0Y)
+
+Learn how Rovio uses machine learning to predict and deliver the perfect level of fun for players.
+
+* [Read more about ML for games](https://aws.amazon.com/gametech/machine-learning/)
+
+Now that you've seen examples of ways you can augment or extend your analytics pipeline, let's take a look at another example architecture that incorporates some of these practices.
 
 
+## D.7 Game Analytics Pipeline solution
+The game analytics pipeline architecture depicted below is designed to empower developers **to gain visibility into real-time KPIs**, **perform ad hoc analytic queries on historical data**, and **generate insightful visualizations and reports**.
 
-In this example, SQS serves as a buffer queue between services. This can reduce load on compute and databases as well. For example, if there are 200,000 write requests to a database all at once, that database might get overloaded. However, if you had an SQS queue, it would buffer those requests to help avoid overloading the database and to better scale.
+
+![alt text](image-30.png)
+
+This architecture uses 
+* ``Amazon Kinesis Data Streams`` **to ingest the data**, 
+* ``Kinesis Data Firehose`` and ``AWS Lambda`` to transform and deliver data, and 
+* ``Amazon S3`` to cost-effectively store data as the source of truth. 
+* ``Amazon Kinesis Data Analytics`` performs real-time streaming analytics, 
+* ``AWS Glue`` performs extract, transform, and load (ETL) processing and data cataloging, and 
+* ``Amazon Athena`` and ``Amazon QuickSight`` **provide serverless ad hoc querying and reporting**. 
+
+As we reviewed in the previous module, **the solution also deploys an ``Amazon API Gateway REST API``, which can be used to submit data to the solution from game clients or other third-party applications that require custom API integration**.
 
 
+# E. Summary
 
-A potential use case for this architecture is using SQS to update a leaderboard. For example, as a player achieves a certain level, it triggers a notification to an SNS topic. The topic then triggers a Lambda function to send data to an SQS queue that pushes data to a DynamoDB table to update that player's new level.
+In this module, **you saw how you can modify your analytics pipeline to include additional datasets, implement event-based processing, and engage learners through automated entitlements**. We also discussed the role of machine learning in expanding your analytics solutions to derive predictive insights that can drive greater operational efficiency and delight and engage your players with personalized experiences.
 
+
+# F Let's review
+
+## F.1 Stages of an analytics pipeline
+![alt text](image-31.png)
+
+## F.2 Batch processing and analytics
+![alt text](image-32.png)
+
+## F.3 Near real-time processing and analytics
+![alt text](image-33.png)
+
+## F.4 Putting it all together
+![alt text](image-34.png)
