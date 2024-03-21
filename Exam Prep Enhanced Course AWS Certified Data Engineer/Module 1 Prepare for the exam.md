@@ -10,6 +10,9 @@
 ![alt text](image.png)
 ![alt text](image-1.png)
 
+
+<img src="image-1.png" alt="drawing" width="600"/>
+
 **Generation** **is where the data originates from, so it is your source system**. This could be an Internet of Things device, a transactional database, an application message queue, and so on. For the generation stage, the data engineer consumes the data from a source system, but does not control that source system. 
 
 Here are just a few questions to consider at this stage. 
