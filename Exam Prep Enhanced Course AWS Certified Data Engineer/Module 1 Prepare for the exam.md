@@ -32,10 +32,11 @@ There are **two major data ingestion concepts to consider at this stage**.
 
 Ensure you understand each and the differences of batch, streaming, push, and pull for this exam. 
 
-<img src="image-2.png" alt="drawing" width="500"/>
+|   |   |   
+|---|---|
+| <img src="image-2.png" alt="drawing" width="2900"/>  |  Consider **replayability of your data ingestion pipelines**. ``Replayability`` **helps to reprocess data in case of failures, updates, or changes in the pipeline logic**. What are considerations to achieve **replayability** in your data ``ingestion`` pipelines? **I always recommend designing your data ingestion pipeline in an event-driven manner**.  |
 
-
-* Consider **replayability of your data ingestion pipelines**. ``Replayability`` **helps to reprocess data in case of failures, updates, or changes in the pipeline logic**. What are considerations to achieve **replayability** in your data ``ingestion`` pipelines? **I always recommend designing your data ingestion pipeline in an event-driven manner**. What are ``AWS services`` you can use to collect and initiate events when new data arrives or if a change occurs? 
+What are ``AWS services`` you can use to collect and initiate events when new data arrives or if a change occurs?
 
 A few services that can help here are ``Amazon S3, Amazon Kinesis, or Amazon EventBridge``. 
 >> **It is best practice to test the replayability of your data ``ingestion`` pipelines using different simulation scenarios and reprocessing scenarios to validate idempotents and consistently reprocess data without data loss, duplication, or integrity issues**.
@@ -49,16 +50,9 @@ This helps the pipeline to process the same data multiple times without data dup
   
   * Use infrastructure as code tools such as ``AWS CloudFormation or AWS Cloud Development Kit, or AWS CDK``, to automate the deployment and configuration of your data ingestion pipeline. 
   
-
-<img src="image-3.png" alt="drawing" width="450"/>
-
-The process of data collection begins with producers. **Producers can be anything** from ``databases`` to ``mobile devices`` or ``applications``. For example, the producer generates the data in the source system and the ingestion tool gathers or ingests it. 
-
 |   |   |   
 |---|---|
-| <img src="image-3.png" alt="drawing" width="1900"/>  | The process of data collection begins with producers. **Producers can be anything** from ``databases`` to ``mobile devices`` or ``applications``. For example, the producer generates the data in the source system and the ingestion tool gathers or ingests it.   |  
+| <img src="image-3.png" alt="drawing" width="5000"/>  | The process of data collection begins with producers. **Producers can be anything** from ``databases`` to ``mobile devices`` or ``applications``. For example, the producer generates the data in the source system and the ingestion tool gathers or ingests it.  Once the data is ingested, it can move directly to a consumer. **Consumers can be anything** from applications hosted on ``Amazon Elastic Compute Cloud, or Amazon EC2``, to ``AWS database services`` to compute services such as ``AWS Lambda`` and more.  |  
 
 
-
-Once the data is ingested, it can move directly to a consumer. **Consumers can be anything** from applications hosted on ``Amazon Elastic Compute Cloud, or Amazon EC2``, to ``AWS database services`` to compute services such as ``AWS Lambda`` and more. 
 <img src="image-4.png" alt="drawing" width="450"/>
