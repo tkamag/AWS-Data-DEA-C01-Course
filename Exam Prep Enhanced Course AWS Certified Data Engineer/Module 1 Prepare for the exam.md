@@ -7,9 +7,8 @@
 ## A.1 Domain 1: Data Ingestion and Transformation
 
 ### A.1.1 Lesson 1: Perform data ingestion
-<img src="image.png" alt="drawing" width="600"/>
-
-<img src="image-1.png" alt="drawing" width="600"/>
+<img src="image.png" alt="drawing" width="420"/>
+<img src="image-1.png" alt="drawing" width="430"/>
 
 
 1. ``Generation`` **is where the data originates from, so it is your source system**. This could be an Internet of Things device, a transactional database, an application message queue, and so on. For the generation stage, the data engineer consumes the data from a source system, but does not control that source system. 
@@ -51,6 +50,5 @@ This helps the pipeline to process the same data multiple times without data dup
   * Use infrastructure as code tools such as ``AWS CloudFormation or AWS Cloud Development Kit, or AWS CDK``, to automate the deployment and configuration of your data ingestion pipeline. 
   
 
-<img src="image-3.png" alt="drawing" width="600"/>
-
-<img src="image-4.png" alt="drawing" width="600"/>
+<img src="image-3.png" alt="drawing" width="400"/>
+<img src="image-4.png" alt="drawing" width="400"/>
