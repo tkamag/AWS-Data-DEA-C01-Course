@@ -50,5 +50,15 @@ This helps the pipeline to process the same data multiple times without data dup
   * Use infrastructure as code tools such as ``AWS CloudFormation or AWS Cloud Development Kit, or AWS CDK``, to automate the deployment and configuration of your data ingestion pipeline. 
   
 
-<img src="image-3.png" alt="drawing" width="435"/>
-<img src="image-4.png" alt="drawing" width="415"/>
+<img src="image-3.png" alt="drawing" width="450"/>
+
+The process of data collection begins with producers. **Producers can be anything** from ``databases`` to ``mobile devices`` or ``applications``. For example, the producer generates the data in the source system and the ingestion tool gathers or ingests it. 
+
+|   |   |   
+|---|---|
+| <img src="image-3.png" alt="drawing" width="1900"/>  | The process of data collection begins with producers. **Producers can be anything** from ``databases`` to ``mobile devices`` or ``applications``. For example, the producer generates the data in the source system and the ingestion tool gathers or ingests it.   |  
+
+
+
+Once the data is ingested, it can move directly to a consumer. **Consumers can be anything** from applications hosted on ``Amazon Elastic Compute Cloud, or Amazon EC2``, to ``AWS database services`` to compute services such as ``AWS Lambda`` and more. 
+<img src="image-4.png" alt="drawing" width="450"/>
