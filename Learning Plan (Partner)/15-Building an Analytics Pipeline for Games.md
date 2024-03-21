@@ -812,3 +812,9 @@ In this module, **you saw how you can modify your analytics pipeline to include 
 
 ## F.4 Putting it all together
 ![alt text](image-34.png)
+
+
+
+To follow
+
+* Exam Prep Enhanced Course: AWS Certified Data Engineer - Associate (DEA-C01 - English)
