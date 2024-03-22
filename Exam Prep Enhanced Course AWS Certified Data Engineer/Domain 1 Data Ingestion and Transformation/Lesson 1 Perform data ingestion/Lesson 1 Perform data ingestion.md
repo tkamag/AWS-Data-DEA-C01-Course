@@ -8,8 +8,8 @@
 ## A.1 Domain 1: Data Ingestion and Transformation
 
 ### A.1.1 Lesson 1: Perform data ingestion
-<img src="image.png" alt="drawing" width="450"/>
-<img src="image-1.png" alt="drawing" width="450"/>
+<img src="fig/image.png" alt="drawing" width="450"/>
+<img src="fig/image-1.png" alt="drawing" width="450"/>
 
 
 1. ``Generation`` **is where the data originates from, so it is your source system**. This could be an Internet of Things device, a transactional database, an application message queue, and so on. For the generation stage, the data engineer consumes the data from a source system, but does not control that source system. 
@@ -35,7 +35,7 @@ Ensure you understand each and the differences of batch, streaming, push, and pu
 
 |   |   |   
 |---|---|
-| <img src="image-2.png" alt="drawing" width="2900"/>  |  Consider **replayability of your data ingestion pipelines**. ``Replayability`` **helps to reprocess data in case of failures, updates, or changes in the pipeline logic**.  <br/> <br/> What are considerations to achieve **replayability** in your data ``ingestion`` pipelines? **I always recommend designing your data ingestion pipeline in an event-driven manner**.  |
+| <img src="fig/image-2.png" alt="drawing" width="2900"/>  |  Consider **replayability of your data ingestion pipelines**. ``Replayability`` **helps to reprocess data in case of failures, updates, or changes in the pipeline logic**.  <br/> <br/> What are considerations to achieve **replayability** in your data ``ingestion`` pipelines? **I always recommend designing your data ingestion pipeline in an event-driven manner**.  |
 
 What are ``AWS services`` you can use to collect and initiate events when new data arrives or if a change occurs?
 
@@ -53,18 +53,18 @@ This helps the pipeline to process the same data multiple times without data dup
   
 |   |   |   
 |---|---|
-| <img src="image-3.png" alt="drawing" width="2900"/>  | The process of data collection begins with producers. **Producers can be anything** from ``databases`` to ``mobile devices`` or ``applications``. For example, the producer generates the data in the source system and the ingestion tool gathers or ingests it.  <br/> <br/> Once the data is ingested, it can move directly to a consumer. **Consumers can be anything** from applications hosted on ``Amazon Elastic Compute Cloud, or Amazon EC2``, to ``AWS database services`` to compute services such as ``AWS Lambda`` and more.  |
+| <img src="fig/image-3.png" alt="drawing" width="2900"/>  | The process of data collection begins with producers. **Producers can be anything** from ``databases`` to ``mobile devices`` or ``applications``. For example, the producer generates the data in the source system and the ingestion tool gathers or ingests it.  <br/> <br/> Once the data is ingested, it can move directly to a consumer. **Consumers can be anything** from applications hosted on ``Amazon Elastic Compute Cloud, or Amazon EC2``, to ``AWS database services`` to compute services such as ``AWS Lambda`` and more.  |
 
 
 |   |   |   
 |---|---|
-| <img src="image-4.png" alt="drawing" width="5000"/>  | For this example, our application writes files to an ``S3 data lake``. This ``data lake`` **needs to be accessed by the data science team and the business intelligence or data analyst team**. Your application is continually capturing data, which are customer interactions with the application and customer reviews, and then writes that data to an ``S3`` bucket in the tab separated values, or TSV, file format. <br/> <br/> How would you design the pipeline to transform the data after writing to ``Amazon S3``, so your data scientists or machine learning engineers can explore this raw data?   |
+| <img src="fig/image-4.png" alt="drawing" width="5000"/>  | For this example, our application writes files to an ``S3 data lake``. This ``data lake`` **needs to be accessed by the data science team and the business intelligence or data analyst team**. Your application is continually capturing data, which are customer interactions with the application and customer reviews, and then writes that data to an ``S3`` bucket in the tab separated values, or TSV, file format. <br/> <br/> How would you design the pipeline to transform the data after writing to ``Amazon S3``, so your data scientists or machine learning engineers can explore this raw data?   |
 
 
 
 |   |   |   
 |---|---|
-| <img src="image-5.png" alt="drawing" width="3000"/>   | Since the data is stored in an ``S3`` bucket, you can use ``Amazon Athena`` **to query and analyze the data using standard SQL**. How do you configure this? <br/> <br/> Well, first **I would register the TSV data in the ``S3`` bucket with ``Athena`` and then run some ad hoc queries** on the data set, but **you could also convert the TSV data into a more query optimized columnar file format** such as ``Apache Parquet``.  <br/> <br/> But what if your business intelligence team needs a subset of that data in a data warehouse? Well, **you can insert TSV data into ``Amazon Redshift`` and combine your data warehouse queries for the data** in the ``S3 lake`` using ``Amazon Redshift Spectrum``.|
+| <img src="fig/image-5.png" alt="drawing" width="3000"/>   | Since the data is stored in an ``S3`` bucket, you can use ``Amazon Athena`` **to query and analyze the data using standard SQL**. How do you configure this? <br/> <br/> Well, first **I would register the TSV data in the ``S3`` bucket with ``Athena`` and then run some ad hoc queries** on the data set, but **you could also convert the TSV data into a more query optimized columnar file format** such as ``Apache Parquet``.  <br/> <br/> But what if your business intelligence team needs a subset of that data in a data warehouse? Well, **you can insert TSV data into ``Amazon Redshift`` and combine your data warehouse queries for the data** in the ``S3 lake`` using ``Amazon Redshift Spectrum``.|
 
  
 What ``AWS service`` **can you use to update your ``Athena`` tables as new data** arrives in your ``S3 data lake?`` 
@@ -76,7 +76,7 @@ Let's ask one more question for this example. **Let's say you're receiving large
 * You have to know the ``copy`` command uses the ``Amazon Redshift massively parallel processing`` architecture **to read and load data in parallel** from files in an ``S3 bucket``, so **you can split the gzip file into smaller files so that the number of files is a multiple of the number of slices** in the ``Amazon Redshift cluster``, and then ``Amazon Redshift`` **can load the data in parallel to the slices, which can improve the overall load time**. 
   >> **You can use parallel processing by splitting your data into multiple files and setting the distribution keys on your table**. 
 
-![alt text](image-6.png)
+![alt text](fig/image-6.png)
 
 In order to do well, **you must be familiar with the common use cases for data analysis**. Be sure that you know the ``AWS services`` related to each use case and how the different ``AWS services`` are implemented and when to choose one over the other. 
 
@@ -90,7 +90,7 @@ In order to do well, **you must be familiar with the common use cases for data a
 
 * For operational analytics, ``Amazon OpenSearch Service`` **can search, explore, filter, aggregate, and visualize your data in near real time for application monitoring, log analytics, and clickstream analytics**. 
 
-![alt text](image-7.png)
+![alt text](fig/image-7.png)
 
 We keep mentioning that **the objective of ``ingestion`` is to ensure that you understand how the frequency, volume, generation, and source system of the data can determine the solution that you choose for your data store**. Back to fundamentals, what are the five v's of data? Variety, volume, velocity, veracity, or validity, and value. 
 
@@ -106,7 +106,7 @@ We keep mentioning that **the objective of ``ingestion`` is to ensure that you u
 
 Okay, let's get back to ``ingestion``. You can use the type of data your environment collects and the temperature of that data to determine what kind of ingestion solution is ideal for your needs. What are AWS services that support the ingestion stage of the data engineer lifecycle? 
 
-| <img src="image-8.png" alt="drawing" width="3000"/>   | ``Transactional data`` systems **need to quickly store and retrieve small amounts of data**. Also, end users need quick and straightforward access to the data. <br/> <br/> ``DynamoDB`` and ``Amazon RDS`` `**are AWS storage solutions for ``transactional`` data**. You could also use ``AWS Database Migration Service``, or ``AWS DMS``, **to ingest transactional data into AWS**. <br/> <br/> With a ``transactional`` database, **the rows in the table updated regularly**.  |   
+| <img src="fig/image-8.png" alt="drawing" width="3000"/>   | ``Transactional data`` systems **need to quickly store and retrieve small amounts of data**. Also, end users need quick and straightforward access to the data. <br/> <br/> ``DynamoDB`` and ``Amazon RDS`` `**are AWS storage solutions for ``transactional`` data**. You could also use ``AWS Database Migration Service``, or ``AWS DMS``, **to ingest transactional data into AWS**. <br/> <br/> With a ``transactional`` database, **the rows in the table updated regularly**.  |   
 |---|---|
 
 
@@ -114,7 +114,7 @@ Okay, let's get back to ``ingestion``. You can use the type of data your environ
 For example, maybe a customer moves or gets a new phone number. ``AWS DMS`` can use the database transaction log files to capture and transfer updates. It can be used to migrate existing database systems to a new database engine, such as migrating an ``Oracle database`` to an ``Amazon Aurora database``, and from an analytic perspective, ``AWS DMS`` **can also be used to run continuous replication from common database engines** to an ``S3 data lake``. 
 
 
-| <img src="image-10.png" alt="drawing" width="4000"/>  | ``Streaming data`` such as **Clickstream logs should be ingested continuously and in real or in near real time**. ``Streaming data`` **is categorized by reading in large amounts of smaller events**.  <br/> <br/> For example, 1 KB payload that you are continuously writing to a stream. With ``streaming data`` **you might need to bound processing by time, event amounts, or particular segments to limit how much data you are processing to produce results in real time**. If you have hot data coming in at a high frequency and you want to process that in real time, then streaming solution might be the best options.  |   
+| <img src="fig/image-10.png" alt="drawing" width="4000"/>  | ``Streaming data`` such as **Clickstream logs should be ingested continuously and in real or in near real time**. ``Streaming data`` **is categorized by reading in large amounts of smaller events**.  <br/> <br/> For example, 1 KB payload that you are continuously writing to a stream. With ``streaming data`` **you might need to bound processing by time, event amounts, or particular segments to limit how much data you are processing to produce results in real time**. If you have hot data coming in at a high frequency and you want to process that in real time, then streaming solution might be the best options.  |   
 |---|---|
 
 
@@ -132,16 +132,16 @@ Another ``AWS streaming service`` is ``Amazon MSK``. You can use ``Amazon MSK`` 
 Another AWS service for ingestion is ``Amazon AppFlow``. What is a use case for ``Amazon AppFlow``? **It can be used to ingest data from software as a service service (SaaS) and transform and write the data** to ``Amazon S3, Amazon Redshift``, or right to other ``SaaS services``. 
 
 
-| <img src="image-11.png" alt="drawing" width="3000"/>  | What ``AWS service`` **would you choose if you had to ingest data using the file transfer protocol, ``FTP``, and secure file transfer protocol, ``SFTP``, protocols**? You can use the ``AWS Transfer Family`` **for file transfers directly into ``Amazon S3`` using common file transfer protocols**.  <br/> <br/> What **if you need to ingest data stored in an on-premises storage?** What ``AWS service`` would you use? ``AWS DataSync`` **can ingest data from an existing on-premises storage system**. ``DataSync`` **also uses common protocols such as** ``NFS`` and ``Server Message Block``, or ``SMB``. |   
+| <img src="fig/image-11.png" alt="drawing" width="3000"/>  | What ``AWS service`` **would you choose if you had to ingest data using the file transfer protocol, ``FTP``, and secure file transfer protocol, ``SFTP``, protocols**? You can use the ``AWS Transfer Family`` **for file transfers directly into ``Amazon S3`` using common file transfer protocols**.  <br/> <br/> What **if you need to ingest data stored in an on-premises storage?** What ``AWS service`` would you use? ``AWS DataSync`` **can ingest data from an existing on-premises storage system**. ``DataSync`` **also uses common protocols such as** ``NFS`` and ``Server Message Block``, or ``SMB``. |   
 |---|---|
 
 
-| <img src="image-12.png" alt="drawing" width="1500"/>  | What **if you need to ingest large amounts of data**? <br/> <br/> Ensure that you understand the ``AWS Snow Family`` and **know which Snow service works best for different use cases and requirements**.  |   
+| <img src="fig/image-12.png" alt="drawing" width="1500"/>  | What **if you need to ingest large amounts of data**? <br/> <br/> Ensure that you understand the ``AWS Snow Family`` and **know which Snow service works best for different use cases and requirements**.  |   
 |---|---|
 
 ### A.1.3 Batch data ingestion
 
-| <img src="image-13.png" alt="drawing" width="1500"/>  |  With ``batch data``, **you are typically dealing with a larger event payloads and ingesting those on an hourly, daily, or weekly basis using a scheduled job such as a CronJob**.<br/> <br/>  You are bounding data by the data source, for example, if you have ingested data stored in an S3 bucket. <br/> <br/> ``Batch data`` **ingestion works for colder data that doesn't need to be processed right away**.   |   
+| <img src="fig/image-13.png" alt="drawing" width="1500"/>  |  With ``batch data``, **you are typically dealing with a larger event payloads and ingesting those on an hourly, daily, or weekly basis using a scheduled job such as a CronJob**.<br/> <br/>  You are bounding data by the data source, for example, if you have ingested data stored in an S3 bucket. <br/> <br/> ``Batch data`` **ingestion works for colder data that doesn't need to be processed right away**.   |   
 |---|---|
 
 
@@ -152,7 +152,7 @@ What are some ``AWS services`` **for ``batch data`` ingestion**? ``Amazon EMR`` 
 ``AWS`` has different services to help support the requirements of your system. Let's wrap up this lesson and talk about **how to manage stateful and stateless data transactions** in ``AWS``. 
 
 
-| <img src="image-14.png" alt="drawing" width="1500"/>  |    |   
+| <img src="fig/image-14.png" alt="drawing" width="1500"/>  |    |   
 |---|---|
 
 ``Stateful data transactions`` `**store information about the current state**. We just talked about transactional databases. **What are ``AWS services`` that support ``stateful data transactions``? ``Amazon ElastiCash for Redis and Amazon RDS``. 
