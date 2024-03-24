@@ -3,6 +3,7 @@
 - [A. Design data models and schema evolution](#a-design-data-models-and-schema-evolution)
 - [B. Walkthrough question 3](#b-walkthrough-question-3)
 - [C. Walkthrough question 4](#c-walkthrough-question-4)
+- [D. Additional resources](#d-additional-resources)
 
 
 
@@ -171,3 +172,27 @@ A few keywords I see are Redshift data warehouse with many large tables, new dat
 **Option D is incorrect**. You can store the data in ``Amazon S3`` instead of ``Amazon` Redshift``. A **solution that catalogs the data with ``AWS Glue`` can reduce storage costs**. However, ``Athena`` runs **simple interactive queries**. ``Amazon Redshift`` **would be a more effective solution to run complex queries**. Additionally, in this scenario, the company does not need the data after 6 months. Therefore, you can delete the data. You do not need to transfer the data to S3 Glacier Deep Archive and incur storage costs. 
 
 Now that we've examined the question, identified keywords, and reviewed the requirements, let's explore the responses. 
+
+# D. Additional resources
+
+* [What Is Cloud Storage?](https://aws.amazon.com/what-is/cloud-storage/#:~:text=a%20massive%20scale.-,What%20are%20the%20types%20of%20cloud%20storage%3F,has%20its%20own%20use%20cases.)
+
+* [Storage Best Practices for Data and Analytics Applications](https://docs.aws.amazon.com/whitepapers/latest/building-data-lakes/building-data-lake-aws.html)
+
+* [Amazon S3 Tutorials](https://docs.aws.amazon.com/AmazonS3/latest/userguide/tutorials.html)
+
+* [Storage Options for Your Amazon EC2 Instances](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html)
+
+* [Implementing Microservices on AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Storage.html)
+
+* [Data Store](https://docs.aws.amazon.com/whitepapers/latest/microservices-on-aws/data-store.html)
+
+* [What Is Amazon Redshift?](https://docs.aws.amazon.com/redshift/latest/mgmt/welcome.html)
+
+* [Working with Query Editor v2](https://docs.aws.amazon.com/redshift/latest/mgmt/query-editor-v2-using.html)
+
+* [S3DistCp (s3-dist-cp)](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/UsingEMR_s3distcp.html)
+
+* [AWS Glue Data Catalog](https://docs.aws.amazon.com/prescriptive-guidance/latest/serverless-etl-aws-glue/aws-glue-data-catalog.html)
+
+* [Catalog and Search](https://docs.aws.amazon.com/whitepapers/latest/building-data-lakes/data-cataloging.html)
