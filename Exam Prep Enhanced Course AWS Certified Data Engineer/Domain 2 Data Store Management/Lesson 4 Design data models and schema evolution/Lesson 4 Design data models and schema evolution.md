@@ -1,6 +1,8 @@
 # A. Design data models and schema evolution
 
 - [A. Design data models and schema evolution](#a-design-data-models-and-schema-evolution)
+- [B. Walkthrough question 3](#b-walkthrough-question-3)
+- [C. Walkthrough question 4](#c-walkthrough-question-4)
 
 
 
@@ -110,3 +112,62 @@ Performing `schema conversion` is **important also when migrating databases from
 The `AWS Schema Conversion Tool` **helps to convert database schemas from one database engine to another**. It is used to convert the schema and code to be compatible with the target database engine for migrations to `Amazon RDS` or `Aurora`. `AWS SCT` **performs an assessment to identify any issues in the schema and code, and then provides guidance on how to address these issues during the conversion process**. And `AWS SCT` **automates many aspects of the schema conversion, such as data type mapping, stored procedure conversions, and index conversions to streamline the migration process.** 
 
 `AWS DMS` works **with `AWS SCT` to convert the source database schema to be compatible with the target database engine during the migration process**. `AWS DMS` **supports schema conversion for various target database engines such as `Amazon RDS, Aurora, Amazon Redshift`, and others. 
+
+
+# B. Walkthrough question 3
+
+A data engineer is working for a multinational e-commerce company. The company's online platform allows customers around the world to upload and download private data stored in Amazon S3 bucket. The bucket is in the sa-east-1 Region. The company wants to ensure latency performance around the world, particularly for users located far from the data origin location. Because of the high remote collaboration from customers, the data is modified on an hourly basis. The data engineer must optimize the application performance. The data engineer wants to reduce latency and ensure fast, secure, and private file transfers across long geographic distances. 
+
+Which solution will meet these requirements?
+
+Option A, use a public Amazon CloudFront distribution. Set the TTL value for 86,400 seconds, or for one day, to maximize cache hits. 
+Option B, use Amazon S3 transfer acceleration and pre-signed URLs. 
+Option C, use byte-range fetches on Amazon S3 
+Option D, use the latest version of the AWS SDKs in the platform source code. 
+
+
+Reading this question, can you identify any keywords or phrases and exactly what the question is asking? 
+
+A few keywords I see are that customers around the world upload and download private data stored in an S3 bucket in the sa-east-1 Region, and you need to ensure latency performance around the world. The data is modified on an hourly basis and you need to optimize the application performance and choose the solution that will also reduce latency and ensure fast, secure, and private file transfers across long geographic distances. 
+
+Now that we've examined the question, identified keywords and reviewed the requirements, let's explore the responses. 
+
+
+**Option A is incorrect**. The scenario states that the **data consistently changes**, a **solution that sets a one day TTL could potentially cause data from the cache to serve outdated data from the edge locations**. Data is updated hourly, therefore, because TTL is set at one day, old data could be transferred. 
+
+
+**Option B is a possible correct answer** because a solution that configures ``S3 Transfer Acceleration`` is the **most suitable for the scenario**. ``S3 Transfer Acceleration`` **can ensure fast, secure, and private file transfers across long geographic distances**. ``S3 Transfer Acceleration`` **uses the globally distributed edge locations of CloudFront**. Additionally, ``S3 Transfer Acceleration`` uses ``AWS backbone networks``. You can configure ``S3 Transfer Acceleration`` in ``Amazon S3``. Therefore, this solution is **private and is suitable to use with data that constantly changes**. This solution **effectively minimizes latency calls by distance**. Therefore, customers from various locations can experience improved upload and download speeds. A solution that uses ``S3 presigned URLs`` **would give customers the ability to interact with ``Amazon S3`` in a private way. Even though this is a possible correct answer, it is best practice to review all the answers to ensure you choose the best choice answer. 
+
+**Option C is incorrect**. You can use **byte-range fetches** to **fetch specific portions of an object by using the range HTTP header**. This solution can improve performance by transferring only the required data. However, **this solution does not directly minimize latency caused by distance**. Additionally, **this solution does not ensure fast, secure file transfers across long geographic distances**. 
+
+**Option D is incorrect**. A **solution that uses the latest SDKs versions is important for performance enhancements. However, this solution does not specifically address the requirement to minimize latency caused by distance**. Additionally, **this solution does not ensure fast, secure file transfers across long geographic distances, so that makes option B the correct answer**. 
+
+# C. Walkthrough question 4
+
+A company has an Amazon Redshift data warehouse with many large tables. The company loads new data daily. The company runs complex queries based on only the last 2 weeks of data. The company runs two complex queries quarterly that must access data for the past 6 months. The company does not need data that is over 6 months old. The company wants to optimize data storage costs. 
+
+Which solution will meet these requirements in the most cost-effective manner?"
+
+Option A, unload data that is older than 2 weeks daily to an Amazon S3 bucket. Delete the data from the Redshift tables. Use Amazon Redshift Spectrum for the quarterly queries. Create a lifecycle management policy to delete data from the S3 bucket after 6 months. 
+
+Option B, unload data that is older than 2 weeks daily to an Amazon S3 bucket. Delete the data from the Redshift tables. Use Amazon Redshift Spectrum for the quarterly queries. Create a lifecycle management configuration to move the data to Amazon S3 Glacier Deep Archive after 6 months. 
+
+Option C, transfer all the data to an Amazon S3 bucket that replaces Amazon Redshift. Use AWS Glue to catalog the data. Use Amazon Athena to query the data directly from the S3 bucket. Create a lifecycle management configuration to delete data from the S3 bucket after 6 months. 
+
+Option D, transfer all the data to an Amazon S3 bucket that replaces Amazon Redshift. Use AWS Glue to catalog the data. Use Amazon Athena to query the data directly from the S3 bucket. Create a lifecycle management configuration to move the data to Amazon S3 Glacier Deep Archive after 6 months. 
+
+
+Reading this question, can you identify any keywords and phrases, and also exactly what the question is asking? 
+
+A few keywords I see are Redshift data warehouse with many large tables, new data is loaded daily, runs complex queries based on only the last 2 weeks of data, but the company runs two complex queries quarterly that must access data for the past 6 months, then data that is over 6 months old is no longer needed. You need to choose the answer that will optimize data storage cost and is the most cost effective. 
+
+
+**Option A is a possible correct answer** because **you can unload older, infrequently queried data** from ``Amazon Redshift`` to ``Amazon S3`` **to reduce data storage costs**. You can use ``Redshift Spectrum`` **to run complex queries directly on the data** in the ``S3 bucket``. You can use **a lifecycle management configuration to delete data that is no longer needed**. Even though this is a possible correct answer, it is best practice to review all the answers to ensure you choose your best choice answer. 
+
+**Option B is incorrect**. You can unload older infrequently queried data from ``Amazon Redshift`` to ``Amazon S3`` to reduce data storage costs. You can use ``Redshift Spectrum`` **to run complex queries directly on the data** in the ``S3 bucket``. However, in this scenario, the company does not need the data after 6 months. Therefore, you can delete the data. **You do not need to transfer the data to S3 Glacier Deep Archive and incur storage costs.** 
+
+**Option C is incorrect**. You can store the data in ``Amazon S3`` instead of ``Amazon Redshift``. A solution that catalogs the data with AWS Glue can reduce storage costs. A solution that uses lifecycle management configuration to delete unneeded data can reduce additional storage costs. However, Athena runs simple interactive queries. ``Amazon Redshift`` **would be a more effective solution to run complex queries**. 
+
+**Option D is incorrect**. You can store the data in ``Amazon S3`` instead of ``Amazon` Redshift``. A **solution that catalogs the data with ``AWS Glue`` can reduce storage costs**. However, ``Athena`` runs **simple interactive queries**. ``Amazon Redshift`` **would be a more effective solution to run complex queries**. Additionally, in this scenario, the company does not need the data after 6 months. Therefore, you can delete the data. You do not need to transfer the data to S3 Glacier Deep Archive and incur storage costs. 
+
+Now that we've examined the question, identified keywords, and reviewed the requirements, let's explore the responses. 
