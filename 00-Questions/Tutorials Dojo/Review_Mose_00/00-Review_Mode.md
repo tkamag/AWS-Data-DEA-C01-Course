@@ -101,7 +101,7 @@ You can use Feature Store in the following modes:
 
 * **Offline** – In offline mode, large streams of data are fed to an offline store, which can be used for training and batch inference. This mode requires a feature group to be stored in an offline store. The offline store uses your S3 bucket for storage and can also fetch data using Athena queries.
 
-* **Online and Offline** – This includes both online and offline modes.
+* **Online and Offline** – This includes both online and offline modes
 
 1. [Create, store, and share features with Amazon SageMaker Feature Store](https://docs.aws.amazon.com/sagemaker/latest/dg/feature-store.html)
 2. [Simplify iterative machine learning model development by adding features to existing feature groups in Amazon SageMaker Feature Store](https://aws.amazon.com/blogs/machine-learning/simplify-iterative-machine-learning-model-development-by-adding-features-to-existing-feature-groups-in-amazon-sagemaker-feature-store/)
